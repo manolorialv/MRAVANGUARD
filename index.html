@@ -3,70 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MRA Vanguard | Ciberseguridad & Consultoría</title>
+    <title>MRA Vanguard | Cyber-Armor Engineering</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .glass {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px -15px rgba(37, 99, 235, 0.4);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
+    </style>
 </head>
-<body class="bg-slate-900 text-white font-sans">
+<body class="bg-[#0a0f1d] text-slate-200 font-sans antialiased">
 
-    <nav class="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold tracking-tighter text-blue-500">MRA VANGUARD</h1>
-            <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest">
-                <a href="#inicio" class="hover:text-blue-400 transition">Inicio</a>
-                <a href="#servicios" class="hover:text-blue-400 transition">Servicios</a>
-                <a href="#contacto" class="hover:text-blue-400 transition">Contacto</a>
+    <nav class="fixed w-full z-50 transition-all duration-300 py-4" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                    <span class="font-black text-white text-xl">M</span>
+                </div>
+                <span class="text-xl font-bold tracking-widest text-white">VANGUARD</span>
+            </div>
+            <div class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-widest">
+                <a href="#inicio" class="hover:text-blue-500 transition-colors">Inicio</a>
+                <a href="#servicios" class="hover:text-blue-500 transition-colors">Servicios</a>
+                <a href="#pruebas" class="hover:text-blue-500 transition-colors">Scan Lab</a>
+                <a href="#contacto" class="border border-blue-500 px-4 py-2 rounded-md hover:bg-blue-500 hover:text-white transition-all">Consultoría</a>
             </div>
         </div>
     </nav>
 
-    <section id="inicio" class="h-screen flex items-center justify-center bg-gradient-to-b from-slate-900 to-slate-800">
-        <div class="text-center px-6">
-            <h2 class="text-5xl md:text-7xl font-extrabold mb-6">Protección Digital <span class="text-blue-600">Avanzada</span></h2>
-            <p class="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">Ingeniería de vanguardia en ciberseguridad y QA. Blindamos tu infraestructura crítica contra las amenazas del mañana.</p>
-            <a href="#contacto" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-bold transition duration-300">Solicitar Auditoría</a>
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full mix-blend-screen filter blur-[100px] animate-pulse"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-600/20 rounded-full mix-blend-screen filter blur-[100px] animate-pulse" style="animation-delay: 2s;"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-6 max-w-4xl">
+            <h2 class="text-6xl md:text-8xl font-black text-white mb-6 tracking-tight">
+                MRA <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">VANGUARD</span>
+            </h2>
+            <p class="text-xl md:text-2xl text-slate-400 mb-10 leading-relaxed font-light">
+                Ingeniería de élite en ciberdefensa y calidad de software. <br class="hidden md:block"> 
+                Transformamos vulnerabilidades en fortalezas digitales.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#servicios" class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-xl font-bold transition-all shadow-lg shadow-blue-900/40">Explorar Soluciones</a>
+                <a href="#pruebas" class="glass px-10 py-4 rounded-xl font-bold hover:bg-slate-800 transition-all text-white">Laboratorio de Pruebas</a>
+            </div>
         </div>
     </section>
 
-    <section id="servicios" class="py-20 bg-slate-800 px-6">
-        <div class="max-w-6xl mx-auto">
-            <h3 class="text-3xl font-bold mb-12 text-center">Nuestras Capacidades</h3>
+    <section id="servicios" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-20 text-center">
+                <h3 class="text-4xl font-bold text-white mb-4">Servicios Especializados</h3>
+                <div class="h-1.5 w-24 bg-blue-600 mx-auto rounded-full"></div>
+            </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-8 bg-slate-900 border border-slate-700 rounded-2xl hover:border-blue-500 transition">
-                    <i class="fas fa-shield-alt text-4xl text-blue-500 mb-4"></i>
-                    <h4 class="text-xl font-bold mb-2">Ciberseguridad</h4>
-                    <p class="text-slate-400">Análisis de vulnerabilidades y defensa perimetral estratégica.</p>
+                <div class="service-card glass p-10 rounded-3xl transition-all duration-500 border-t-4 border-t-blue-600">
+                    <div class="bg-blue-600/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-8">
+                        <i class="fas fa-user-shield text-3xl text-blue-500"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-4">Cyber-Armor</h4>
+                    <p class="text-slate-400 leading-relaxed">Pentesting y auditoría de infraestructura para blindar activos contra amenazas externas e internas.</p>
                 </div>
-                <div class="p-8 bg-slate-900 border border-slate-700 rounded-2xl hover:border-blue-500 transition">
-                    <i class="fas fa-bug text-4xl text-blue-500 mb-4"></i>
-                    <h4 class="text-xl font-bold mb-2">QA Testing</h4>
-                    <p class="text-slate-400">Automatización de pruebas y aseguramiento de calidad de software.</p>
+                <div class="service-card glass p-10 rounded-3xl transition-all duration-500 border-t-4 border-t-cyan-500">
+                    <div class="bg-cyan-500/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-8">
+                        <i class="fas fa-vial text-3xl text-cyan-400"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-4">QA Automation</h4>
+                    <p class="text-slate-400 leading-relaxed">Aseguramiento de calidad mediante pruebas automatizadas, garantizando un software robusto y escalable.</p>
                 </div>
-                <div class="p-8 bg-slate-900 border border-slate-700 rounded-2xl hover:border-blue-500 transition">
-                    <i class="fas fa-database text-4xl text-blue-500 mb-4"></i>
-                    <h4 class="text-xl font-bold mb-2">DB Administration</h4>
-                    <p class="text-slate-400">Gestión segura y optimización de bases de datos críticas.</p>
+                <div class="service-card glass p-10 rounded-3xl transition-all duration-500 border-t-4 border-t-indigo-600">
+                    <div class="bg-indigo-600/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-8">
+                        <i class="fas fa-database text-3xl text-indigo-500"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-4">Data Integrity</h4>
+                    <p class="text-slate-400 leading-relaxed">Gestión avanzada de bases de datos Oracle/SQL Server con enfoque en disponibilidad y alta seguridad.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contacto" class="py-20 px-6">
-        <div class="max-w-4xl mx-auto bg-slate-800 p-10 rounded-3xl shadow-2xl">
-            <h3 class="text-3xl font-bold mb-8 text-center">Contactar con Consultoría</h3>
-            <form id="contactForm" class="space-y-6">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <input type="text" id="name" placeholder="Nombre" class="w-full bg-slate-900 border border-slate-700 p-4 rounded-lg focus:outline-none focus:border-blue-500" required>
-                    <input type="email" id="email" placeholder="Email" class="w-full bg-slate-900 border border-slate-700 p-4 rounded-lg focus:outline-none focus:border-blue-500" required>
+    <section id="pruebas" class="py-32 px-6 bg-slate-900/40 border-y border-slate-800">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl font-bold text-white mb-4">Vanguard Scan Lab</h3>
+                <p class="text-slate-400 max-w-2xl mx-auto">Realiza una auditoría preliminar de seguridad y rendimiento. Detecta brechas antes que los atacantes.</p>
+            </div>
+            <div class="glass p-8 rounded-3xl max-w-3xl mx-auto mb-16">
+                <div class="flex flex-col md:flex-row gap-4">
+                    <input type="text" id="targetUrl" placeholder="https://tu-plataforma.com" 
+                        class="flex-1 bg-slate-900 border border-slate-700 p-4 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all text-blue-400">
+                    <button id="scanBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-xl font-bold flex items-center justify-center space-x-2 transition-all">
+                        <i class="fas fa-microscope"></i>
+                        <span>Analizar URL</span>
+                    </button>
                 </div>
-                <textarea id="message" rows="4" placeholder="¿Cómo podemos ayudarte?" class="w-full bg-slate-900 border border-slate-700 p-4 rounded-lg focus:outline-none focus:border-blue-500" required></textarea>
-                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 p-4 rounded-lg font-bold transition">Enviar Mensaje</button>
-            </form>
+            </div>
+            <div id="resultsArea" class="hidden grid md:grid-cols-2 gap-8">
+                <div class="glass p-8 rounded-3xl border-l-4 border-l-red-500">
+                    <h4 class="text-xl font-bold mb-6 flex items-center text-white">
+                        <i class="fas fa-shield-virus text-red-500 mr-3"></i> Seguridad (Cybersec)
+                    </h4>
+                    <div class="space-y-3" id="securityMetrics"></div>
+                </div>
+                <div class="glass p-8 rounded-3xl border-l-4 border-l-green-500">
+                    <h4 class="text-xl font-bold mb-6 flex items-center text-white">
+                        <i class="fas fa-tachometer-alt text-green-500 mr-3"></i> Rendimiento (QA)
+                    </h4>
+                    <div class="space-y-3" id="qaMetrics"></div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="py-10 text-center text-slate-500 border-t border-slate-800">
-        <p>&copy; 2026 MRA VANGUARD. Todos los derechos reservados.</p>
+    <section id="contacto" class="py-32 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass p-12 rounded-[2.5rem] border border-blue-500/20">
+                <h3 class="text-3xl font-bold text-white mb-8">Inicia tu Consultoría</h3>
+                <form id="vanguardForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-xs uppercase font-black text-slate-500 tracking-tighter">Nombre Completo</label>
+                        <input type="text" id="name" required class="w-full bg-slate-900/50 border border-slate-700 p-4 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none transition-all">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-xs uppercase font-black text-slate-500 tracking-tighter">Email Corporativo</label>
+                        <input type="email" id="email" required class="w-full bg-slate-900/50 border border-slate-700 p-4 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none transition-all">
+                    </div>
+                    <div class="md:col-span-2 space-y-2">
+                        <label class="text-xs uppercase font-black text-slate-500 tracking-tighter">Mensaje</label>
+                        <textarea id="message" rows="4" required class="w-full bg-slate-900/50 border border-slate-700 p-4 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none transition-all"></textarea>
+                    </div>
+                    <button type="submit" class="md:col-span-2 bg-blue-600 hover:bg-blue-700 text-white font-black py-4 rounded-xl transition-all shadow-lg shadow-blue-600/20 uppercase tracking-widest">
+                        Enviar a MRA Vanguard
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-slate-600">
+        <p class="text-xs tracking-[0.3em] font-medium uppercase">&copy; 2026 MRA VANGUARD | Engineering Security</p>
     </footer>
 
     <script src="main.js"></script>
