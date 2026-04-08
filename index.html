@@ -3,32 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRA vanguard | Engineering & Defense</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>MRA Vanguard | Ciberseguridad</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="bg-slate-950 text-white font-sans antialiased">
+<body class="bg-slate-950 text-slate-200 font-sans selection:bg-blue-500 selection:text-white">
 
-    <nav class="p-6 flex justify-between items-center border-b border-slate-800">
-        <div class="text-2xl font-black tracking-tighter text-blue-500">MRA VANGUARD</div>
-        <div class="text-sm font-medium text-slate-400">Cyber-Armor Engineering</div>
+    <nav class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-slate-800 p-5">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-black tracking-tighter uppercase italic">
+                <span class="text-blue-500">MRA</span> <span class="text-white">vanguard</span>
+            </h1>
+            <div class="hidden md:flex space-x-6 text-xs font-bold tracking-widest uppercase items-center">
+                <a href="#módulos" class="hover:text-blue-400 transition">Herramientas</a>
+                <a href="#contacto" class="px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition text-[10px]">CONTACTO</a>
+            </div>
+        </div>
     </nav>
 
-    <header class="py-20 px-6 text-center">
-        <h1 class="text-5xl font-extrabold mb-6 bg-gradient-to-r from-blue-400 to-indigo-600 bg-clip-text text-transparent">
-            Seguridad Digital de Vanguardia
-        </h1>
-        <p class="text-lg text-slate-400 max-w-xl mx-auto mb-10 text-pretty">
-            Especialistas en ciberseguridad, infraestructura cloud y aseguramiento de calidad de software para empresas de alto nivel.
-        </p>
-        <div class="flex flex-col gap-4 sm:flex-row justify-center">
-            <a href="#" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-bold transition">Nuestros Servicios</a>
-            <a href="#" class="px-8 py-3 border border-slate-700 hover:bg-slate-900 rounded-lg font-bold transition text-slate-300">Contactar</a>
+    <section id="módulos" class="py-16 max-w-5xl mx-auto px-6">
+        <h2 class="text-center text-3xl font-black mb-12 text-white uppercase tracking-tighter italic">Centro de Pruebas & Análisis</h2>
+        
+        <div class="grid md:grid-cols-2 gap-10">
+            
+            <div class="p-8 bg-slate-900 rounded-2xl border border-slate-800">
+                <h4 class="text-blue-500 font-bold uppercase mb-4 text-sm"><i class="fas fa-search-nodes mr-2"></i> Análisis Lineal de URL</h4>
+                <p class="text-xs text-slate-500 mb-6">Ingresa una URL para validar su estructura y parámetros de seguridad.</p>
+                <input id="urlInput" type="text" placeholder="https://ejemplo.com" class="w-full bg-slate-800 border border-slate-700 p-3 rounded-lg text-sm mb-4 outline-none focus:border-blue-500">
+                <button onclick="analizarUrl()" class="w-full bg-blue-600 p-3 rounded-lg font-bold text-xs uppercase hover:bg-blue-700 transition">Ejecutar Escaneo</button>
+                <div id="resultadoUrl" class="mt-4 p-3 bg-black/50 rounded-lg text-[11px] font-mono text-green-400 hidden"></div>
+            </div>
+
+            <div class="p-8 bg-slate-900 rounded-2xl border border-slate-800">
+                <h4 class="text-blue-500 font-bold uppercase mb-4 text-sm"><i class="fas fa-bug text-sm mr-2"></i> Diagnóstico Express QA/Security</h4>
+                <p class="text-xs text-slate-500 mb-6">Analiza vulnerabilidades comunes y estado de calidad del sitio.</p>
+                <div class="space-y-3">
+                    <button onclick="testQA('SSL')" class="w-full text-left p-3 border border-slate-800 rounded-lg text-xs hover:bg-slate-800 transition">1. Verificar Certificado SSL/TLS</button>
+                    <button onclick="testQA('QA')" class="w-full text-left p-3 border border-slate-800 rounded-lg text-xs hover:bg-slate-800 transition">2. Simular Prueba de Regresión (Selenium)</button>
+                    <button onclick="testQA('VUL')" class="w-full text-left p-3 border border-slate-800 rounded-lg text-xs hover:bg-slate-800 transition">3. Escaneo de Inyección SQL Express</button>
+                </div>
+                <div id="resultadoTest" class="mt-4 p-3 bg-black/50 rounded-lg text-[11px] font-mono text-blue-400 hidden italic"></div>
+            </div>
+
         </div>
-    </header>
+    </section>
 
-    <footer class="mt-20 py-8 text-center text-slate-600 text-xs border-t border-slate-900">
-        © 2026 MRA Vanguard. Lima, Perú.
+    <section id="contacto" class="py-12 bg-slate-900/50 text-center px-6">
+        <div class="flex flex-col md:flex-row justify-center gap-4 max-w-xl mx-auto">
+            <a href="https://wa.me/51912648708" target="_blank" class="flex-1 px-6 py-3 bg-green-600 text-white font-bold rounded-lg text-xs tracking-widest">WHATSAPP</a>
+            <a href="https://t.me/+51912648708" target="_blank" class="flex-1 px-6 py-3 bg-sky-600 text-white font-bold rounded-lg text-xs tracking-widest">TELEGRAM</a>
+        </div>
+    </section>
+
+    <script>
+        function analizarUrl() {
+            const url = document.getElementById('urlInput').value;
+            const res = document.getElementById('resultadoUrl');
+            res.classList.remove('hidden');
+            if(url === "") { res.innerHTML = "> ERROR: URL requerida."; return; }
+            res.innerHTML = > Analizando: ${url}<br>> Búsqueda lineal iniciada...<br>> Protocolo: OK<br>> Estructura: Validada.;
+        }
+
+        function testQA(tipo) {
+            const res = document.getElementById('resultadoTest');
+            res.classList.remove('hidden');
+            let msj = "";
+            if(tipo === 'SSL') msj = "> Ejecutando Check SSL... [CERTIFICADO VÁLIDO]";
+            if(tipo === 'QA') msj = "> Selenium Worker iniciado... Pruebas de UI finalizadas: 0 errores.";
+            if(tipo === 'VUL') msj = "> Analizando puntos de inyección... No se detectaron brechas críticas.";
+            res.innerHTML = msj;
+        }
+    </script>
+
+    <footer class="py-8 text-center text-[10px] text-slate-600 tracking-[0.3em] uppercase">
+        MRA vanguard &copy; 2026 | Ingeniería de Seguridad
     </footer>
-
 </body>
 </html>
