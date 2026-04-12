@@ -3,164 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MRA VANGUARD | Cyber-Armor Engineering</title>
+    <title>MRA_VANGUARD // CORE_SYSTEM</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;400;800&display=swap" rel="stylesheet">
     <style>
-        :root { --accent: #00ff41; } /* Verde terminal o puedes usar #3b82f6 para azul */
-        body { background-color: #000; color: #fff; font-family: 'JetBrains Mono', monospace; }
-        .h1-bold { font-family: 'Inter', sans-serif; font-weight: 900; letter-spacing: -0.05em; }
-        .border-thin { border: 1px solid rgba(255, 255, 255, 0.1); }
-        .scanline {
-            width: 100%; height: 2px; background: rgba(0, 255, 65, 0.1);
-            position: absolute; animation: scan 4s linear infinite;
-        }
-        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
-        .grid-bg {
-            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
-            background-size: 40px 40px;
-        }
+        :root { --matrix-green: #00ff41; --danger: #ff3e3e; }
+        body { background-color: #000; color: #666; font-family: 'JetBrains Mono', monospace; overflow-x: hidden; }
+        .glitch-text { color: #fff; font-weight: 800; text-transform: uppercase; letter-spacing: -2px; }
+        .terminal-box { border: 1px solid #1a1a1a; background: rgba(5, 5, 5, 0.8); transition: all 0.2s; }
+        .terminal-box:hover { border-color: var(--matrix-green); color: #ccc; }
+        .status-dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; background: var(--matrix-green); box-shadow: 0 0 10px var(--matrix-green); }
+        input { background: #000 !important; border: 1px solid #333 !important; color: var(--matrix-green) !important; outline: none !important; }
+        input:focus { border-color: var(--matrix-green) !important; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #333; }
     </style>
 </head>
-<body class="grid-bg">
+<body class="p-4 md:p-10">
 
-    <header class="p-6 flex justify-between items-center border-b border-white/10 sticky top-0 bg-black/80 backdrop-blur-md z-50">
-        <div class="flex items-center gap-2">
-            <div class="w-3 h-3 bg-blue-600 rounded-full animate-pulse"></div>
-            <span class="font-bold tracking-tighter text-xl text-white">MRA VANGUARD</span>
+    <header class="flex justify-between items-start mb-20 border-b border-white/5 pb-4">
+        <div>
+            <h1 class="glitch-text text-3xl italic">MRA_VANGUARD</h1>
+            <p class="text-[9px] tracking-[0.4em] text-zinc-500 uppercase">Peruvian Cyber-Armor Intelligence // v2.6.0</p>
         </div>
-        <nav class="hidden md:flex gap-10 text-[10px] uppercase tracking-[0.3em] text-gray-400 font-bold">
-            <a href="#lab" class="hover:text-white transition">Lab_Scanner</a>
-            <a href="#servicios" class="hover:text-white transition">Services_Core</a>
-            <a href="#contacto" class="text-blue-500 hover:text-blue-400">Establish_Contact</a>
-        </nav>
+        <div class="text-right text-[10px] space-y-1">
+            <p><span class="status-dot"></span> SYSTEM_ONLINE</p>
+            <p class="text-zinc-700">LIMA_PE_SECURE_SERVER</p>
+            <p id="clock" class="text-zinc-400"></p>
+        </div>
     </header>
 
-    <section class="relative h-[80vh] flex flex-col justify-center px-10 md:px-24 overflow-hidden">
-        <div class="scanline"></div>
-        <span class="text-blue-500 text-xs mb-4 tracking-[0.5em] font-bold">ENGINEERING & DEFENSE // 2026</span>
-        <h1 class="h1-bold text-6xl md:text-9xl uppercase leading-none mb-6">Cyber <br> Armor.</h1>
-        <p class="max-w-md text-gray-500 text-sm leading-relaxed border-l-2 border-blue-600 pl-4">
-            Consultoría técnica de alto nivel. Especialistas en blindaje de infraestructura crítica, modernización de sistemas legacy (FoxPro/VB6) y administración de bases de datos de alta disponibilidad.
-        </p>
-    </section>
+    <section id="lab" class="mb-24">
+        <div class="flex items-center gap-4 mb-6">
+            <span class="text-white font-bold text-xs">[01]</span>
+            <h2 class="text-white text-xs tracking-widest uppercase">Target_Analysis_Module</h2>
+            <div class="h-[1px] flex-1 bg-white/10"></div>
+        </div>
 
-    <section id="lab" class="p-10 md:p-24 border-y border-white/10 bg-zinc-950/50">
-        <div class="max-w-5xl mx-auto">
-            <div class="mb-10">
-                <h2 class="text-xs text-blue-500 font-bold tracking-widest mb-2 uppercase">[ 01. Real-time Scanner ]</h2>
-                <p class="text-2xl font-bold">Diagnóstico de Amenazas Externas</p>
-            </div>
-            
+        <div class="max-w-4xl">
             <div class="flex flex-col md:flex-row gap-0">
-                <input id="urlInput" type="text" placeholder="ENTRADA_DOMINIO_URL..." 
-                class="flex-1 bg-transparent border border-white/20 p-5 outline-none focus:border-blue-500 font-mono text-sm uppercase">
-                <button onclick="checkURL()" class="bg-blue-600 text-black font-bold p-5 hover:bg-blue-400 transition text-sm uppercase tracking-tighter">
-                    Ejecutar_Analisis()
+                <div class="bg-zinc-900 p-4 text-zinc-500 text-xs flex items-center border border-zinc-800 uppercase">Root@MRA:~$</div>
+                <input id="urlInput" type="text" placeholder="INGRESE_OBJETIVO_URL..." 
+                class="flex-1 p-5 text-sm font-mono tracking-widest uppercase">
+                <button onclick="checkURL()" class="bg-white text-black px-10 py-5 text-xs font-black uppercase hover:bg-green-500 transition">
+                    RUN_SCAN
                 </button>
             </div>
             
-            <div id="resultBox" class="mt-4 hidden p-6 border border-blue-500/30 bg-blue-500/5">
-                <pre id="resultText" class="whitespace-pre-wrap text-[12px]"></pre>
+            <div id="resultBox" class="mt-4 hidden p-6 border border-zinc-800 bg-black overflow-hidden relative">
+                <div class="absolute top-0 left-0 w-full h-[1px] bg-green-500/20 animate-pulse"></div>
+                <pre id="resultText" class="text-[11px] leading-relaxed"></pre>
             </div>
         </div>
     </section>
 
-    <section id="servicios" class="p-10 md:p-24">
-        <h2 class="text-[10px] text-gray-600 font-bold tracking-[0.5em] mb-12 uppercase">SERVICES_PORTFOLIO</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-white/10">
-            <div class="border-r border-b border-white/10 p-10 hover:bg-white/[0.02] transition">
-                <span class="text-blue-500 text-xs font-bold">01/</span>
-                <h3 class="font-bold my-4">PENTESTING & AUDIT</h3>
-                <p class="text-gray-500 text-xs leading-relaxed">Auditoría profunda de vulnerabilidades en redes corporativas y cumplimiento SBS/SUNAT.</p>
+    <section id="servicios" class="mb-24">
+        <div class="flex items-center gap-4 mb-10">
+            <span class="text-white font-bold text-xs">[02]</span>
+            <h2 class="text-white text-xs tracking-widest uppercase">Deployment_Specialties</h2>
+            <div class="h-[1px] flex-1 bg-white/10"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="terminal-box p-6 relative group overflow-hidden">
+                <h3 class="text-white text-xs mb-4 font-bold tracking-tighter uppercase underline decoration-zinc-700">Auditoría_Pentesting</h3>
+                <p class="text-[10px] leading-relaxed">Explotación controlada y reporte de brechas bajo normas internacionales.</p>
             </div>
-            <div class="border-r border-b border-white/10 p-10 hover:bg-white/[0.02] transition">
-                <span class="text-blue-500 text-xs font-bold">02/</span>
-                <h3 class="font-bold my-4">LEGACY SHIELD</h3>
-                <p class="text-gray-500 text-xs leading-relaxed">Hardening y modernización de sistemas críticos construidos en FoxPro y Visual Basic 6.</p>
+            <div class="terminal-box p-6">
+                <h3 class="text-white text-xs mb-4 font-bold tracking-tighter uppercase underline decoration-zinc-700">Sistemas_Legacy</h3>
+                <p class="text-[10px] leading-relaxed">Blindaje de código muerto (FoxPro/VB6) y migración de alta seguridad.</p>
             </div>
-            <div class="border-r border-b border-white/10 p-10 hover:bg-white/[0.02] transition">
-                <span class="text-blue-500 text-xs font-bold">03/</span>
-                <h3 class="font-bold my-4">DBA ARCHITECTURE</h3>
-                <p class="text-gray-500 text-xs leading-relaxed">Gestión avanzada de SQL Server y Oracle. Alta disponibilidad y recuperación ante desastres.</p>
+            <div class="terminal-box p-6">
+                <h3 class="text-white text-xs mb-4 font-bold tracking-tighter uppercase underline decoration-zinc-700">Bases_de_Datos</h3>
+                <p class="text-[10px] leading-relaxed">Hardening de Oracle y SQL Server. Gestión de redundancia crítica.</p>
             </div>
-            <div class="border-r border-b border-white/10 p-10 bg-blue-600 text-black hover:bg-blue-400 transition">
-                <span class="text-black text-xs font-bold">04/</span>
-                <h3 class="font-bold my-4 uppercase tracking-tighter">MRA Academy</h3>
-                <p class="text-black/80 text-xs leading-relaxed font-bold">Capacitación de élite para equipos de TI. Ciberseguridad aplicada y administración técnica.</p>
+            <div class="terminal-box p-6 bg-white/[0.03] border-white/20">
+                <h3 class="text-white text-xs mb-4 font-bold tracking-tighter uppercase italic text-green-400">MRA_Academy_</h3>
+                <p class="text-[10px] leading-relaxed text-zinc-400">Capacitación técnica avanzada para equipos de TI en defensa y DBA.</p>
             </div>
         </div>
     </section>
 
-    <section id="contacto" class="p-10 md:px-24 pb-32">
-        <div class="max-w-2xl border border-white/10 p-10">
-            <h3 class="text-xs text-blue-500 font-bold tracking-widest mb-8 uppercase">> CONTACTO_PROTOCOLO</h3>
-            <form action="#" class="space-y-6">
-                <div class="border-b border-white/20 pb-2">
-                    <label class="block text-[10px] text-gray-600 uppercase">Client_Identity</label>
-                    <input type="text" class="w-full bg-transparent outline-none py-2 text-sm uppercase">
-                </div>
-                <div class="border-b border-white/20 pb-2">
-                    <label class="block text-[10px] text-gray-600 uppercase">Comm_Channel (Email)</label>
-                    <input type="email" class="w-full bg-transparent outline-none py-2 text-sm">
-                </div>
-                <div class="border-b border-white/20 pb-2">
-                    <label class="block text-[10px] text-gray-600 uppercase">System_Requirements</label>
-                    <textarea class="w-full bg-transparent outline-none py-2 text-sm uppercase resize-none" rows="3"></textarea>
-                </div>
-                <button class="text-xs border border-blue-600 text-blue-600 px-10 py-4 hover:bg-blue-600 hover:text-black transition uppercase font-bold tracking-widest">
-                    Inicializar_Petición
-                </button>
-            </form>
+    <section id="contacto" class="max-w-xl">
+        <div class="flex items-center gap-4 mb-10">
+            <span class="text-white font-bold text-xs">[03]</span>
+            <h2 class="text-white text-xs tracking-widest uppercase">Direct_Secure_Link</h2>
+            <div class="h-[1px] flex-1 bg-white/10"></div>
+        </div>
+
+        <div class="space-y-6">
+            <div class="flex gap-4">
+                <span class="text-zinc-500 text-[10px] font-bold">NAME:</span>
+                <input type="text" class="flex-1 bg-transparent border-0 border-b border-zinc-800 p-0 text-xs uppercase">
+            </div>
+            <div class="flex gap-4">
+                <span class="text-zinc-500 text-[10px] font-bold">MAIL:</span>
+                <input type="email" class="flex-1 bg-transparent border-0 border-b border-zinc-800 p-0 text-xs">
+            </div>
+            <div class="pt-4">
+                <span class="text-zinc-500 text-[10px] font-bold block mb-2">QUERY_PACKET:</span>
+                <textarea class="w-full bg-black border border-zinc-800 p-4 text-xs text-white uppercase outline-none focus:border-white/40" rows="3"></textarea>
+            </div>
+            <button class="w-full border border-white text-white p-4 text-[10px] font-bold uppercase hover:bg-white hover:text-black transition tracking-[0.4em]">
+                TRANSMIT_DATA()
+            </button>
         </div>
     </section>
 
-    <footer class="p-10 border-t border-white/10 flex justify-between items-center text-[10px] text-gray-600 tracking-[0.2em] uppercase">
-        <div>MRA_VANGUARD_v2.0</div>
-        <div>LIMA_PERU_2026</div>
+    <footer class="mt-32 opacity-20 text-[8px] flex justify-between">
+        <p>MRA_VANGUARD_SEC_INFRA // LIMA_PERU</p>
+        <p>COORDINATES: -12.0464, -77.0428</p>
     </footer>
 
     <script>
+        // Reloj en tiempo real para el header
+        setInterval(() => {
+            const now = new Date();
+            document.getElementById('clock').innerText = now.toISOString().replace('T', ' ').split('.')[0] + " UTC";
+        }, 1000);
+
         async function checkURL() {
-            const urlInput = document.getElementById('urlInput');
-            const resultBox = document.getElementById('resultBox');
-            const resultText = document.getElementById('resultText');
+            const input = document.getElementById('urlInput');
+            const box = document.getElementById('resultBox');
+            const text = document.getElementById('resultText');
             
-            if(!urlInput.value) return;
+            if(!input.value) return;
 
-            resultBox.classList.remove('hidden');
-            resultText.innerText = `[INFO] ESCANEANDO: ${urlInput.value}\n[INFO] CONECTANDO CON GOOGLE SAFE BROWSING API...\n[WAIT] ANALIZANDO HEURÍSTICA...`;
+            box.classList.remove('hidden');
+            text.innerHTML = `> [SYSTEM] INICIANDO ESCANEO HEURÍSTICO...\n> [TRACE] DOMINIO: ${input.value}\n> [WAIT] CONSULTANDO GOOGLE_SAFE_BROWSING_API...`;
+            text.style.color = "#666";
 
-            // Nota: Aquí pones tu API KEY de Google Cloud Console
-            const API_KEY = 'TU_API_KEY'; 
+            // REEMPLAZAR CON API KEY REAL
+            const API_KEY = 'TU_API_KEY_AQUÍ'; 
             const endpoint = `https://safebrowsing.googleapis.com/v4/threatMatches:find?key=${API_KEY}`;
             
-            const payload = {
-                "client": {"clientId": "mra-v", "clientVersion": "1.0"},
+            const body = {
+                "client": {"clientId": "mravanguard", "clientVersion": "2.0.0"},
                 "threatInfo": {
-                    "threatTypes": ["MALWARE", "SOCIAL_ENGINEERING"],
+                    "threatTypes": ["MALWARE", "SOCIAL_ENGINEERING", "UNWANTED_SOFTWARE"],
                     "platformTypes": ["ANY_PLATFORM"],
                     "threatEntryTypes": ["URL"],
-                    "threatEntries": [{"url": urlInput.value}]
+                    "threatEntries": [{"url": input.value}]
                 }
             };
 
             try {
-                const response = await fetch(endpoint, { method: 'POST', body: JSON.stringify(payload) });
+                const response = await fetch(endpoint, { method: 'POST', body: JSON.stringify(body) });
                 const data = await response.json();
                 
                 setTimeout(() => {
                     if(data.matches) {
-                        resultText.innerText = `[ALERTA] AMENAZA DETECTADA\n[STATUS] EL SITIO ES MALICIOSO\n[TYPE] ${data.matches[0].threatType}`;
-                        resultText.classList.add('text-red-500');
+                        text.innerHTML += `\n\n[!!!] ALERTA DE AMENAZA DETECTADA [!!!]\nESTADO: MALICIOSO / NO SEGURO\nTIPO: ${data.matches[0].threatType}\nACCIÓN: BLOQUEO RECOMENDADO.`;
+                        text.style.color = "var(--danger)";
                     } else {
-                        resultText.innerText = `[SAFE] NO SE ENCONTRARON AMENAZAS\n[STATUS] EL SITIO PARECE SEGURO\n[DB] GOOGLE_SAFE_BROWSING_V4`;
-                        resultText.classList.add('text-blue-500');
+                        text.innerHTML += `\n\n[SUCCESS] SCAN FINALIZADO SIN HALLAZGOS.\nESTADO: CLEAN / SECURE\nBASE_DATOS: GS_BROWSING_V4_LATEST.`;
+                        text.style.color = "var(--matrix-green)";
                     }
-                }, 1500);
+                }, 1000);
             } catch (e) {
-                resultText.innerText = `[ERROR] FALLO EN LA CONEXIÓN API. REVISE CREDENCIALES.`;
+                text.innerHTML += `\n\n[ERROR] FALLO EN LA COMUNICACIÓN CON EL API LAB.`;
             }
         }
     </script>
