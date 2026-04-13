@@ -1,210 +1,492 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MRA VANGUARD | Ciberseguridad • Lima, Perú</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Google reCAPTCHA v3 -->
-  <script src="https://www.google.com/recaptcha/api.js?render=TU_SITE_KEY_AQUÍ"></script>
-  <style>
-    body { font-family: 'Inter', system-ui, sans-serif; }
-    .hero-bg { background: linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.88)), url('https://source.unsplash.com/random/1920x1080/?cyber,security,dark') center/cover no-repeat; }
-    .card-hover { transition: all 0.3s ease; }
-    .card-hover:hover { transform: translateY(-10px); box-shadow: 0 25px 30px -10px rgb(0 191 255 / 0.25); }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MRA VANGUARD — Ciberseguridad · Lima, Perú</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0e0e0e;
+  --bg2:#141414;
+  --bg3:#1a1a1a;
+  --white:#f8f8f8;
+  --red:#ff3b3b;
+  --red2:#ff6b6b;
+  --muted:#555;
+  --dim:#888;
+  --border:rgba(255,255,255,0.07);
+  --F:'Manrope',sans-serif;
+  --D:'Bebas Neue',sans-serif;
+  --M:'IBM Plex Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:var(--F);overflow-x:hidden;cursor:default}
+::selection{background:var(--red);color:#fff}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:var(--red)}
+
+/* ── NAV ── */
+nav{
+position:fixed;top:0;left:0;right:0;z-index:300;
+display:flex;align-items:center;justify-content:space-between;
+padding:1.2rem 5vw;
+mix-blend-mode:normal;
+}
+nav::before{
+content:’’;position:absolute;inset:0;
+background:rgba(14,14,14,0.85);
+backdrop-filter:blur(16px);
+border-bottom:1px solid var(–border);
+z-index:-1;
+}
+.logo{
+text-decoration:none;color:var(–white);
+font-family:var(–D);font-size:1.4rem;letter-spacing:0.12em;
+display:flex;align-items:center;gap:0.5rem;
+}
+.logo-dot{width:8px;height:8px;border-radius:50%;background:var(–red);animation:blink 1.8s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.nav-r{display:flex;align-items:center;gap:2.5rem}
+.nav-r a{font-family:var(–M);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(–muted);text-decoration:none;transition:color .2s}
+.nav-r a:hover{color:var(–white)}
+.nav-cta{
+font-family:var(–M) !important;font-size:0.65rem !important;
+border:1px solid var(–red) !important;color:var(–red) !important;
+padding:0.45rem 1.2rem;transition:background .2s,color .2s !important;
+}
+.nav-cta:hover{background:var(–red) !important;color:#fff !important}
+
+/* ── HERO ── */
+#hero{
+min-height:100vh;
+display:flex;flex-direction:column;justify-content:flex-end;
+padding:0 5vw 6rem;
+position:relative;overflow:hidden;
+}
+.hero-bg-text{
+position:absolute;top:50%;left:50%;
+transform:translate(-50%,-50%);
+font-family:var(–D);
+font-size:clamp(14rem,28vw,32rem);
+line-height:1;letter-spacing:-0.02em;
+color:transparent;
+-webkit-text-stroke:1px rgba(255,255,255,0.04);
+white-space:nowrap;pointer-events:none;z-index:0;
+user-select:none;
+}
+.hero-line{
+position:absolute;top:0;right:0;bottom:0;
+width:1px;background:linear-gradient(to bottom,transparent,var(–red),transparent);
+right:25vw;opacity:0.4;
+}
+.hero-content{position:relative;z-index:2}
+.hero-tag{
+font-family:var(–M);font-size:0.65rem;
+letter-spacing:0.14em;text-transform:uppercase;
+color:var(–red);margin-bottom:1.5rem;
+display:flex;align-items:center;gap:0.6rem;
+}
+.hero-tag::before{content:’’;display:block;width:32px;height:1px;background:var(–red)}
+h1{
+font-family:var(–D);
+font-size:clamp(5rem,14vw,16rem);
+line-height:0.88;letter-spacing:-0.01em;
+margin-bottom:0;
+}
+h1 .outline{
+color:transparent;
+-webkit-text-stroke:2px var(–white);
+}
+.hero-bottom{
+display:flex;align-items:flex-end;justify-content:space-between;
+margin-top:2.5rem;gap:2rem;flex-wrap:wrap;
+border-top:1px solid var(–border);
+padding-top:2rem;
+}
+.hero-desc{
+font-size:0.95rem;color:var(–dim);
+line-height:1.8;max-width:420px;font-weight:400;
+}
+.hero-desc strong{color:var(–white);font-weight:600}
+.hero-actions{display:flex;gap:1rem;align-items:center;flex-shrink:0}
+.btn-red{
+background:var(–red);color:#fff;
+font-family:var(–M);font-size:0.72rem;
+letter-spacing:0.08em;text-transform:uppercase;
+padding:0.85rem 2rem;border:none;cursor:pointer;
+text-decoration:none;display:inline-block;
+transition:background .2s,transform .15s;
+}
+.btn-red:hover{background:var(–red2);transform:translateY(-2px)}
+.btn-ghost{
+font-family:var(–M);font-size:0.72rem;
+letter-spacing:0.08em;text-transform:uppercase;
+color:var(–muted);text-decoration:none;
+border-bottom:1px solid var(–border);padding-bottom:2px;
+transition:color .2s,border-color .2s;
+}
+.btn-ghost:hover{color:var(–white);border-color:var(–white)}
+.hero-counter{
+position:absolute;top:50%;right:5vw;
+transform:translateY(-50%);
+display:flex;flex-direction:column;gap:2.5rem;
+z-index:2;
+}
+.counter-item{text-align:right}
+.c-num{font-family:var(–D);font-size:3rem;line-height:1;color:var(–white)}
+.c-label{font-family:var(–M);font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(–muted);margin-top:0.2rem}
+
+/* ── MARQUEE ── */
+.marquee-wrap{
+background:var(–red);
+overflow:hidden;
+padding:0.7rem 0;
+position:relative;z-index:2;
+}
+.marquee-track{
+display:flex;gap:0;
+animation:marquee 22s linear infinite;
+white-space:nowrap;
+}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-track span{
+font-family:var(–M);font-size:0.68rem;
+letter-spacing:0.14em;text-transform:uppercase;
+color:#fff;padding:0 2.5rem;
+border-right:1px solid rgba(255,255,255,0.2);
+}
+
+/* ── SECTIONS ── */
+.sw{padding:7rem 5vw}
+.lbl{
+font-family:var(–M);font-size:0.62rem;
+letter-spacing:0.18em;text-transform:uppercase;
+color:var(–red);margin-bottom:0.8rem;
+display:flex;align-items:center;gap:0.6rem;
+}
+.lbl::before{content:’’;display:block;width:20px;height:1px;background:var(–red)}
+.stitle{
+font-family:var(–D);
+font-size:clamp(2.8rem,6vw,6rem);
+line-height:0.92;letter-spacing:0.02em;
+margin-bottom:1.5rem;
+}
+.ssub{color:var(–dim);font-size:0.95rem;line-height:1.8;max-width:500px;margin-bottom:4rem;font-weight:400}
+
+/* ── SERVICES ── */
+#servicios{background:var(–bg2)}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(–border)}
+.svc{
+padding:2.5rem 2rem;
+border-right:1px solid var(–border);
+border-bottom:1px solid var(–border);
+position:relative;overflow:hidden;
+transition:background .25s;
+}
+.svc:hover{background:var(–bg3)}
+.svc::after{
+content:’’;position:absolute;bottom:0;left:0;right:0;height:2px;
+background:var(–red);transform:scaleX(0);transform-origin:left;
+transition:transform .35s ease;
+}
+.svc:hover::after{transform:scaleX(1)}
+.svc-num{
+font-family:var(–M);font-size:0.58rem;
+color:var(–muted);letter-spacing:0.1em;
+margin-bottom:1.5rem;
+}
+.svc-icon{font-size:1.4rem;margin-bottom:1rem;display:block;filter:grayscale(1);transition:filter .25s}
+.svc:hover .svc-icon{filter:grayscale(0)}
+.svc-t{font-size:1rem;font-weight:700;color:var(–white);margin-bottom:0.6rem;letter-spacing:-0.01em}
+.svc-d{font-size:0.82rem;color:var(–muted);line-height:1.75;font-weight:400}
+
+/* ── METHOD ── */
+#metodologia{background:var(–bg)}
+.msteps{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(–border);border:1px solid var(–border)}
+.ms{
+background:var(–bg);padding:2rem 1.5rem;
+display:flex;flex-direction:column;
+transition:background .2s;
+}
+.ms:hover{background:var(–bg3)}
+.ms-n{
+font-family:var(–D);font-size:3.5rem;line-height:1;
+color:transparent;-webkit-text-stroke:1px var(–border);
+margin-bottom:1.5rem;
+transition:color .3s,-webkit-text-stroke .3s;
+}
+.ms:hover .ms-n{color:var(–red);-webkit-text-stroke:1px var(–red)}
+.ms-t{font-size:0.85rem;font-weight:700;color:var(–white);margin-bottom:0.5rem}
+.ms-d{font-size:0.78rem;color:var(–muted);line-height:1.7;font-weight:400}
+
+/* ── ABOUT ── */
+#nosotros{background:var(–bg2)}
+.about-wrap{
+display:grid;grid-template-columns:1fr 1fr;
+gap:6rem;align-items:start;
+}
+.about-body{font-size:0.95rem;color:var(–dim);line-height:1.85;margin-bottom:1.2rem;font-weight:400}
+.about-body strong{color:var(–white);font-weight:700}
+.feat-grid{display:flex;flex-direction:column;gap:0}
+.fi-item{
+display:flex;align-items:flex-start;gap:1rem;
+padding:1.1rem 0;border-bottom:1px solid var(–border);
+font-size:0.85rem;color:var(–dim);line-height:1.6;font-weight:400;
+}
+.fi-item:last-child{border-bottom:none}
+.fi-n{
+font-family:var(–M);font-size:0.62rem;
+color:var(–red);letter-spacing:0.06em;
+flex-shrink:0;margin-top:2px;
+}
+
+/* ── CONTACT ── */
+#contacto{background:var(–bg)}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+.ctitle{font-family:var(–D);font-size:clamp(2.5rem,5vw,5rem);line-height:0.92;letter-spacing:0.02em;margin-bottom:1.2rem}
+.cdesc{font-size:0.92rem;color:var(–dim);line-height:1.8;margin-bottom:2.5rem;font-weight:400}
+.cdet{
+display:flex;align-items:center;gap:0.9rem;
+font-family:var(–M);font-size:0.72rem;
+color:var(–muted);text-decoration:none;
+margin-bottom:0.9rem;transition:color .2s;
+letter-spacing:0.04em;
+}
+.cdet:hover{color:var(–white)}
+.cdi{
+width:30px;height:30px;
+border:1px solid var(–border);
+display:flex;align-items:center;justify-content:center;
+font-size:0.7rem;color:var(–red);flex-shrink:0;
+transition:border-color .2s;
+}
+.cdet:hover .cdi{border-color:var(–red)}
+form{display:flex;flex-direction:column;gap:1.2rem}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fg{display:flex;flex-direction:column;gap:0.4rem}
+label{font-family:var(–M);font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:var(–muted)}
+input,textarea,select{
+background:var(–bg2);
+border:1px solid var(–border);
+padding:0.8rem 1rem;
+font-family:var(–F);font-size:0.88rem;color:var(–white);
+outline:none;resize:vertical;
+transition:border-color .2s;
+}
+input::placeholder,textarea::placeholder{color:var(–muted)}
+input:focus,textarea:focus,select:focus{border-color:var(–red)}
+select option{background:var(–bg2)}
+textarea{min-height:110px}
+.bsub{
+background:var(–red);color:#fff;border:none;
+padding:0.9rem 2.5rem;
+font-family:var(–M);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;
+cursor:pointer;align-self:flex-start;
+transition:background .2s,transform .15s;
+}
+.bsub:hover{background:var(–red2);transform:translateY(-1px)}
+
+/* ── FOOTER ── */
+footer{
+background:var(–bg2);
+border-top:1px solid var(–border);
+padding:2rem 5vw;
+display:flex;align-items:center;justify-content:space-between;
+flex-wrap:wrap;gap:1rem;
+}
+.flogo{font-family:var(–D);font-size:1.2rem;letter-spacing:0.1em;color:var(–white)}
+.fmeta,.floc{font-family:var(–M);font-size:0.6rem;letter-spacing:0.06em;color:var(–muted)}
+.floc{display:flex;align-items:center;gap:0.4rem}
+.floc::before{content:‘⬤’;color:var(–red);font-size:0.4rem}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.reveal.show{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){.sgrid{grid-template-columns:repeat(2,1fr)}.msteps{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:768px){
+.nav-r>a:not(.nav-cta){display:none}
+h1{font-size:clamp(4rem,18vw,8rem)}
+.hero-counter{display:none}
+.sgrid,.about-wrap,.cg{grid-template-columns:1fr}
+.msteps{grid-template-columns:1fr 1fr}
+.fr{grid-template-columns:1fr}
+.sw{padding:5rem 5vw}
+.hero-bottom{flex-direction:column;align-items:flex-start}
+footer{flex-direction:column;align-items:flex-start}
+}
+</style>
+
 </head>
-<body class="bg-zinc-950 text-zinc-200">
+<body>
 
-  <!-- Navbar (igual que antes) -->
-  <nav class="fixed top-0 w-full bg-zinc-950/95 backdrop-blur-md z-50 border-b border-zinc-800">
-    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 bg-cyan-500 rounded-2xl flex items-center justify-center text-black font-bold text-3xl">M</div>
-        <h1 class="text-2xl font-bold tracking-tighter">MRA VANGUARD</h1>
+<!-- NAV -->
+
+<nav>
+  <a href="#" class="logo"><span class="logo-dot"></span>MRA VANGUARD</a>
+  <div class="nav-r">
+    <a href="#servicios">Servicios</a>
+    <a href="#metodologia">Metodología</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#contacto" class="nav-cta">Consultar</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+
+<section id="hero">
+  <div class="hero-bg-text">SEC</div>
+  <div class="hero-line"></div>
+
+  <div class="hero-counter reveal">
+    <div class="counter-item"><div class="c-num">24/7</div><div class="c-label">Disponibilidad</div></div>
+    <div class="counter-item"><div class="c-num">6</div><div class="c-label">Especialidades</div></div>
+    <div class="counter-item"><div class="c-num">ISO</div><div class="c-label">27001 · NIST</div></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-tag reveal">Consultoría en Ciberseguridad — Lima, Perú</div>
+    <h1 class="reveal" style="transition-delay:.08s">
+      SEGURI<br><span class="outline">DAD.</span>
+    </h1>
+    <div class="hero-bottom reveal" style="transition-delay:.16s">
+      <p class="hero-desc">Auditamos, fortalecemos y defendemos la infraestructura digital de su organización. <strong>Especialistas en entornos críticos, sistemas legacy y cumplimiento normativo peruano.</strong></p>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn-red">Diagnóstico Gratuito</a>
+        <a href="#servicios" class="btn-ghost">Ver Servicios →</a>
       </div>
-      <div class="hidden md:flex gap-8 text-sm font-medium">
-        <a href="#servicios" class="nav-link">Servicios</a>
-        <a href="#proceso" class="nav-link">Proceso</a>
-        <a href="#test" class="nav-link">Test de Postura</a>
-        <a href="#contacto" class="nav-link">Contacto</a>
-      </div>
-      <a href="https://wa.me/51999999999" target="_blank" class="bg-cyan-500 hover:bg-cyan-400 text-black font-semibold px-6 py-3 rounded-2xl flex items-center gap-2">
-        <i class="fab fa-whatsapp"></i> WhatsApp
-      </a>
     </div>
-  </nav>
+  </div>
+</section>
 
-  <!-- Hero (mismo que antes, abreviado por espacio) -->
-  <section class="hero-bg min-h-screen flex items-center pt-20">
-    <div class="max-w-7xl mx-auto px-6 text-center">
-      <h1 class="text-6xl md:text-7xl font-bold tracking-tighter leading-tight mb-6">
-        Ciberseguridad de<br><span class="text-cyan-400">vanguardia</span> para empresas peruanas
-      </h1>
-      <p class="max-w-2xl mx-auto text-xl text-zinc-400 mb-10">Especialistas en sistemas legacy y cumplimiento normativo en Lima.</p>
-      <a href="#test" class="bg-white text-black font-semibold px-10 py-5 rounded-3xl text-lg inline-flex items-center gap-3 hover:bg-zinc-100">
-        <i class="fas fa-shield-alt"></i> Realizar Test Gratuito de Postura
-      </a>
+<!-- MARQUEE -->
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Pentesting</span><span>Hardening</span><span>ISO 27001</span><span>Sistemas Legacy</span><span>Bases de Datos</span><span>GRC</span><span>MRA Academy</span><span>Lima, Perú</span><span>Ley 29733</span><span>Red Team</span><span>Pentesting</span><span>Hardening</span><span>ISO 27001</span><span>Sistemas Legacy</span><span>Bases de Datos</span><span>GRC</span><span>MRA Academy</span><span>Lima, Perú</span><span>Ley 29733</span><span>Red Team</span>
+  </div>
+</div>
+
+<!-- SERVICIOS -->
+
+<section id="servicios">
+  <div class="sw">
+    <div class="lbl reveal">Servicios</div>
+    <h2 class="stitle reveal" style="transition-delay:.06s">LO QUE<br>HACEMOS.</h2>
+    <p class="ssub reveal" style="transition-delay:.12s">Cada engagement es diseñado a medida. No trabajamos con plantillas: cada cliente recibe atención dedicada y metodologías adaptadas a su contexto.</p>
+    <div class="sgrid reveal" style="transition-delay:.18s">
+      <div class="svc"><div class="svc-num">01 · OFENSIVO</div><span class="svc-icon">🔍</span><div class="svc-t">Auditoría y Pentesting</div><p class="svc-d">Simulación de ataques controlados para identificar brechas antes que un actor malicioso. Reportes ejecutivos bajo OWASP, PTES y OSSTMM.</p></div>
+      <div class="svc"><div class="svc-num">02 · INFRAESTRUCTURA</div><span class="svc-icon">🛡️</span><div class="svc-t">Hardening de Sistemas</div><p class="svc-d">Endurecimiento de servidores, redes y endpoints. Segmentación de redes y bastionado bajo CIS Benchmarks y NIST SP 800-53.</p></div>
+      <div class="svc"><div class="svc-num">03 · LEGACY</div><span class="svc-icon">⚙️</span><div class="svc-t">Seguridad en Sistemas Legacy</div><p class="svc-d">Especialistas en FoxPro, VB6 y COBOL. Migraciones seguras y blindaje de código heredado sin interrumpir operaciones críticas.</p></div>
+      <div class="svc"><div class="svc-num">04 · DATOS</div><span class="svc-icon">🗄️</span><div class="svc-t">Seguridad en Bases de Datos</div><p class="svc-d">Hardening de Oracle, SQL Server y PostgreSQL. Cifrado en reposo, gestión de privilegios y planes de recuperación (DRP).</p></div>
+      <div class="svc"><div class="svc-num">05 · CUMPLIMIENTO</div><span class="svc-icon">📋</span><div class="svc-t">GRC y Cumplimiento Normativo</div><p class="svc-d">Alineación con ISO/IEC 27001, Ley N° 29733 y regulaciones de SBS y SMV. Gestión de riesgos y gobernanza TI.</p></div>
+      <div class="svc"><div class="svc-num">06 · FORMACIÓN</div><span class="svc-icon">🎓</span><div class="svc-t">MRA Academy</div><p class="svc-d">Capacitación técnica para equipos de TI: ethical hacking, gestión segura de bases de datos, respuesta a incidentes.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Servicios y Proceso (mantengo igual que la versión anterior para no alargar demasiado) -->
-  <!-- ... (copia las secciones de Servicios y Proceso de mi respuesta anterior) ... -->
+<!-- METODOLOGÍA -->
 
-  <!-- TEST DE POSTURA REAL (mejorado con JS + reCAPTCHA) -->
-  <section id="test" class="py-24 bg-zinc-900">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="text-center mb-12">
-        <span class="text-emerald-400 font-medium">GRATIS • CONFIDENCIAL • 2 MINUTOS</span>
-        <h2 class="text-5xl font-bold mt-3">Test Real de Postura de Ciberseguridad</h2>
-        <p class="mt-4 text-zinc-400">Evalúa rápidamente el nivel de madurez de tu empresa. Resultado instantáneo + recomendaciones.</p>
+<section id="metodologia">
+  <div class="sw">
+    <div class="lbl reveal">Metodología</div>
+    <h2 class="stitle reveal" style="transition-delay:.06s">NUESTRO<br>PROCESO.</h2>
+    <p class="ssub reveal" style="transition-delay:.12s">Framework estructurado que garantiza transparencia total, desde el primer contacto hasta el cierre definitivo de cada hallazgo.</p>
+    <div class="msteps reveal" style="transition-delay:.18s">
+      <div class="ms"><div class="ms-n">01</div><div class="ms-t">Reconocimiento y Scoping</div><p class="ms-d">Definición del alcance, activos críticos y objetivos. Firma de NDA y contrato.</p></div>
+      <div class="ms"><div class="ms-n">02</div><div class="ms-t">Análisis y Evaluación</div><p class="ms-d">Auditoría técnica profunda y mapeo completo de superficie de ataque.</p></div>
+      <div class="ms"><div class="ms-n">03</div><div class="ms-t">Explotación Controlada</div><p class="ms-d">Pruebas de penetración con documentación forense de todos los hallazgos.</p></div>
+      <div class="ms"><div class="ms-n">04</div><div class="ms-t">Reporte y Remediación</div><p class="ms-d">Informe ejecutivo y técnico con severidad CVSS y roadmap priorizado.</p></div>
+      <div class="ms"><div class="ms-n">05</div><div class="ms-t">Verificación y Cierre</div><p class="ms-d">Re-testing y acompañamiento post-engagement sin costo adicional.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+
+<section id="nosotros">
+  <div class="sw">
+    <div class="about-wrap">
+      <div>
+        <div class="lbl reveal">Sobre MRA Vanguard</div>
+        <h2 class="stitle reveal" style="transition-delay:.06s">PERITOS.<br>NO<br>GENERALISTAS.</h2>
+        <p class="about-body reveal" style="transition-delay:.12s">MRA Vanguard nace en Lima con una convicción clara: <strong>la ciberseguridad no puede ser un servicio de caja negra.</strong> Cada cliente merece entender exactamente qué se hace, por qué y qué resultados puede esperar.</p>
+        <p class="about-body reveal" style="transition-delay:.16s">Somos una consultora nueva, pero no improvisada. Nuestro equipo cuenta con formación técnica sólida y <strong>conocimiento directo del ecosistema regulatorio peruano.</strong></p>
+        <p class="about-body reveal" style="transition-delay:.2s">Apostamos por relaciones de largo plazo: desde el diagnóstico inicial hasta la madurez en seguridad, con total transparencia.</p>
       </div>
-
-      <div id="quiz-container" class="bg-zinc-950 border border-zinc-800 rounded-3xl p-10">
-        <div id="question" class="text-2xl font-medium mb-10 min-h-[120px]"></div>
-        
-        <div id="options" class="grid grid-cols-1 gap-4"></div>
-
-        <div class="flex justify-between mt-12">
-          <button onclick="prevQuestion()" id="prev-btn" class="px-8 py-3 border border-zinc-700 rounded-2xl hover:bg-zinc-800 hidden">← Anterior</button>
-          <button onclick="nextQuestion()" id="next-btn" class="ml-auto bg-cyan-500 hover:bg-cyan-400 text-black font-semibold px-10 py-3 rounded-2xl">Siguiente →</button>
+      <div class="reveal" style="transition-delay:.1s">
+        <div class="feat-grid">
+          <div class="fi-item"><span class="fi-n">01</span>Formación técnica en seguridad ofensiva y defensiva</div>
+          <div class="fi-item"><span class="fi-n">02</span>Metodologías alineadas a ISO 27001, NIST y OWASP desde el inicio</div>
+          <div class="fi-item"><span class="fi-n">03</span>Conocimiento del marco regulatorio peruano: Ley 29733, SBS, SMV</div>
+          <div class="fi-item"><span class="fi-n">04</span>Especialización en infraestructura legacy peruana (FoxPro, VB6)</div>
+          <div class="fi-item"><span class="fi-n">05</span>Confidencialidad garantizada bajo NDA desde el primer contacto</div>
+          <div class="fi-item"><span class="fi-n">06</span>Tarifas competitivas y propuestas flexibles para empresas en crecimiento</div>
+          <div class="fi-item"><span class="fi-n">07</span>Enfoque en relaciones de largo plazo, no proyectos puntuales</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <!-- Resultado -->
-      <div id="result-container" class="hidden bg-zinc-950 border border-zinc-800 rounded-3xl p-12 text-center">
-        <h3 id="result-title" class="text-4xl font-bold mb-4"></h3>
-        <div id="score-display" class="text-7xl font-bold my-8"></div>
-        <p id="result-message" class="text-lg text-zinc-300 mb-10"></p>
-        
-        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl p-8 mb-10 text-left">
-          <h4 class="font-semibold mb-4 text-cyan-400">Recomendaciones inmediatas:</h4>
-          <ul id="recommendations" class="space-y-3 text-sm"></ul>
-        </div>
+<!-- CONTACTO -->
 
-        <a id="whatsapp-result" href="#" target="_blank"
-           class="inline-flex items-center gap-4 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-12 py-5 rounded-3xl text-xl">
-          <i class="fab fa-whatsapp text-3xl"></i> Obtener análisis detallado por WhatsApp
-        </a>
+<section id="contacto">
+  <div class="sw">
+    <div class="cg">
+      <div>
+        <div class="lbl reveal">Contacto</div>
+        <h2 class="ctitle reveal" style="transition-delay:.06s">HABLE<br>CON<br>NOSOTROS.</h2>
+        <p class="cdesc reveal" style="transition-delay:.12s">El diagnóstico inicial es sin costo y sin compromiso. Cuéntenos su situación y le proponemos un alcance claro, adaptado a su realidad y presupuesto.</p>
+        <a href="mailto:contacto@mravanguard.pe" class="cdet reveal" style="transition-delay:.16s"><div class="cdi">✉</div>contacto@mravanguard.pe</a>
+        <a href="https://wa.me/51999999999" class="cdet reveal" style="transition-delay:.2s"><div class="cdi">◎</div>+51 999 999 999</a>
+        <div class="cdet reveal" style="transition-delay:.24s"><div class="cdi">◉</div>Lima, Perú · Atención nacional</div>
+      </div>
+      <div class="reveal" style="transition-delay:.1s">
+        <form>
+          <div class="fr">
+            <div class="fg"><label>Nombre</label><input type="text" placeholder="Juan Pérez"></div>
+            <div class="fg"><label>Empresa</label><input type="text" placeholder="Empresa S.A.C."></div>
+          </div>
+          <div class="fg"><label>Correo electrónico</label><input type="email" placeholder="juan@empresa.pe"></div>
+          <div class="fg">
+            <label>Servicio de interés</label>
+            <select>
+              <option value="">Seleccionar...</option>
+              <option>Auditoría y Pentesting</option>
+              <option>Hardening de Sistemas</option>
+              <option>Seguridad en Sistemas Legacy</option>
+              <option>Seguridad en Bases de Datos</option>
+              <option>GRC y Cumplimiento Normativo</option>
+              <option>MRA Academy — Capacitación</option>
+              <option>Necesito orientación</option>
+            </select>
+          </div>
+          <div class="fg"><label>Mensaje</label><textarea placeholder="Describa brevemente su infraestructura o el desafío que enfrenta..."></textarea></div>
+          <button type="button" class="bsub">Enviar Consulta →</button>
+        </form>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Contacto y Footer (igual que antes) -->
-  <!-- ... copia las secciones de Contacto y Footer de la versión anterior ... -->
+<!-- FOOTER -->
 
-  <!-- Botón flotante WhatsApp -->
-  <a href="https://wa.me/51999999999" target="_blank" 
-     class="fixed bottom-8 right-8 bg-emerald-500 text-black w-16 h-16 rounded-full flex items-center justify-center text-4xl shadow-2xl hover:scale-110 transition z-50">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+<footer>
+  <div class="flogo">MRA VANGUARD</div>
+  <div class="floc">Lima, Perú · Atención nacional</div>
+  <div class="fmeta">© 2026 MRA Vanguard Security. Todos los derechos reservados.</div>
+</footer>
 
-  <script>
-    // === CONFIGURACIÓN ===
-    const questions = [
-      { q: "¿Su empresa tiene un firewall y segmentación de red implementada?", opts: ["No", "Básico", "Avanzado"], points: [0, 5, 10] },
-      { q: "¿Realizan actualizaciones y parches de seguridad de forma regular?", opts: ["Nunca", "Ocasionalmente", "Mensualmente o automatizado"], points: [0, 5, 10] },
-      { q: "¿Utilizan autenticación multifactor (MFA/2FA) en sistemas críticos?", opts: ["No", "Solo en algunos", "En todos los sistemas críticos"], points: [0, 5, 10] },
-      { q: "¿Tienen backups cifrados y probados regularmente?", opts: ["No", "Sí, pero no probados", "Sí, cifrados y probados"], points: [0, 5, 10] },
-      { q: "¿Cuentan con políticas documentadas de contraseñas y acceso privilegiado?", opts: ["No", "Parcial", "Sí, completas"], points: [0, 5, 10] },
-      { q: "¿Realizan auditorías o pentesting al menos una vez al año?", opts: ["Nunca", "Solo vulnerabilidades básicas", "Pentesting completo"], points: [0, 5, 10] },
-      { q: "¿Los sistemas legacy (FoxPro, VB6, COBOL) están protegidos o en proceso de migración segura?", opts: ["No protegidos", "Parcialmente", "Blindados o migrando"], points: [0, 5, 10] },
-      { q: "¿Cumplen con la Ley 29733 de Protección de Datos Personales?", opts: ["No", "En proceso", "Sí, con controles activos"], points: [0, 5, 10] },
-      { q: "¿Tienen un plan documentado de respuesta a incidentes?", opts: ["No", "Básico", "Completo y probado"], points: [0, 5, 10] },
-      { q: "¿Capacitan regularmente al personal en ciberseguridad?", opts: ["Nunca", "Anualmente", "Trimestral o más"], points: [0, 5, 10] },
-      { q: "¿Monitorean logs y eventos de seguridad en tiempo real?", opts: ["No", "Parcial", "Sí con SIEM o herramienta equivalente"], points: [0, 5, 10] },
-      { q: "¿Tienen seguro cibernético o cobertura contra incidentes?", opts: ["No", "En evaluación", "Sí"], points: [0, 5, 10] }
-    ];
+<script>
+const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); }), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+setTimeout(()=>document.querySelectorAll('#hero .reveal').forEach(el=>el.classList.add('show')),60);
+</script>
 
-    let current = 0;
-    let totalScore = 0;
-    let answers = [];
-
-    function renderQuestion() {
-      document.getElementById('question').textContent = questions[current].q;
-      const optsDiv = document.getElementById('options');
-      optsDiv.innerHTML = '';
-
-      questions[current].opts.forEach((opt, i) => {
-        const btn = document.createElement('button');
-        btn.className = "w-full py-6 border border-zinc-700 hover:border-cyan-400 rounded-2xl text-left px-8 transition text-lg";
-        btn.textContent = opt;
-        btn.onclick = () => selectAnswer(i);
-        optsDiv.appendChild(btn);
-      });
-
-      document.getElementById('prev-btn').classList.toggle('hidden', current === 0);
-    }
-
-    function selectAnswer(index) {
-      answers[current] = index;
-      totalScore += questions[current].points[index];
-
-      if (current < questions.length - 1) {
-        current++;
-        renderQuestion();
-      } else {
-        showResult();
-      }
-    }
-
-    function prevQuestion() {
-      if (current > 0) {
-        totalScore -= questions[current-1].points[answers[current-1] || 0];
-        current--;
-        renderQuestion();
-      }
-    }
-
-    function showResult() {
-      document.getElementById('quiz-container').classList.add('hidden');
-      const resultDiv = document.getElementById('result-container');
-      resultDiv.classList.remove('hidden');
-
-      let title, message, color, recs;
-
-      if (totalScore <= 40) {
-        title = "Postura Baja - Riesgo Alto";
-        message = "Su organización necesita atención urgente. Hay brechas críticas que pueden ser explotadas.";
-        color = "text-red-400";
-        recs = ["Realizar pentesting completo inmediatamente", "Implementar MFA en todos los accesos", "Blindar sistemas legacy", "Capacitar al equipo"];
-      } else if (totalScore <= 80) {
-        title = "Postura Media - Mejorable";
-        message = "Tiene una base aceptable, pero hay oportunidades importantes para fortalecer la seguridad.";
-        color = "text-amber-400";
-        recs = ["Mejorar monitoreo y respuesta a incidentes", "Revisar hardening de infraestructura", "Realizar auditoría anual", "Documentar políticas de seguridad"];
-      } else {
-        title = "Postura Alta - Excelente base";
-        message = "¡Felicitaciones! Su madurez es buena. Podemos ayudarle a alcanzar estándares internacionales.";
-        color = "text-emerald-400";
-        recs = ["Mantener actualizaciones continuas", "Realizar pentesting rojo anual", "Explorar GRC avanzado", "Evaluar seguro cibernético"];
-      }
-
-      document.getElementById('result-title').innerHTML = title;
-      document.getElementById('result-title').className = `text-4xl font-bold mb-4 ${color}`;
-      document.getElementById('score-display').innerHTML = `${totalScore}<span class="text-3xl text-zinc-400">/120</span>`;
-      document.getElementById('result-message').textContent = message;
-
-      const recList = document.getElementById('recommendations');
-      recList.innerHTML = recs.map(r => `<li class="flex items-start gap-3"><span class="text-cyan-400 mt-1">→</span> ${r}</li>`).join('');
-
-      // Link WhatsApp con puntaje
-      const waLink = `https://wa.me/51999999999?text=Hola%20MRA%20Vanguard%2C%20realic%C3%A9%20el%20test%20y%20obtuve%20${totalScore}%20puntos.%20Quiero%20un%20an%C3%A1lisis%20detallado.`;
-      document.getElementById('whatsapp-result').href = waLink;
-    }
-
-    // Iniciar test
-    window.onload = () => {
-      renderQuestion();
-      
-      // reCAPTCHA v3 (ejecuta al cargar)
-      grecaptcha.ready(() => {
-        grecaptcha.execute('TU_SITE_KEY_AQUÍ', {action: 'test_cybersecurity'}).then(token => {
-          console.log('reCAPTCHA token:', token); // Puedes enviarlo a un backend si lo agregas después
-        });
-      });
-    };
-  </script>
 </body>
 </html>
