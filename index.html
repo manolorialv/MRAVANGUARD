@@ -3,116 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MRA VANGUARD | Ciberseguridad Especializada</title>
+    <title>MRA VANGUARD | Peritos en Ciberseguridad</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;800&display=swap');
         
-        body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: white; }
+        :root {
+            --neon-green: #22c55e;
+            --dark-bg: #050505;
+        }
+
+        body { font-family: 'Inter', sans-serif; background-color: var(--dark-bg); color: white; }
         .font-mono { font-family: 'JetBrains Mono', monospace; }
         
-        .terminal-glow {
-            box-shadow: 0 0 15px rgba(34, 197, 94, 0.2);
+        .glass-card {
+            background: rgba(15, 15, 15, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(34, 197, 94, 0.1);
+            transition: all 0.3s ease;
         }
 
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
+        .glass-card:hover {
+            border-color: var(--neon-green);
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.1);
         }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #1a1a1a;
+
+        .text-gradient {
+            background: linear-gradient(to right, #ffffff, #22c55e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #22c55e;
-            border-radius: 10px;
-        }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #0a0a0a; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--neon-green); border-radius: 10px; }
     </style>
 </head>
-<body class="scroll-smooth">
+<body class="scroll-smooth custom-scrollbar">
 
-    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-green-900/30">
+    <nav class="fixed w-full z-50 bg-black/90 border-b border-white/5 backdrop-blur-md">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold tracking-tighter text-green-500">
-                MRA<span class="text-white">VANGUARD</span>
+            <div class="text-2xl font-extrabold tracking-tighter">
+                <span class="text-green-500">MRA</span> VANGUARD
             </div>
-            <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest">
+            <div class="hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400">
                 <a href="#servicios" class="hover:text-green-500 transition">Servicios</a>
                 <a href="#metodologia" class="hover:text-green-500 transition">Metodología</a>
+                <a href="#sobre" class="hover:text-green-500 transition">La Consultora</a>
                 <a href="#contacto" class="hover:text-green-500 transition">Auditoría Live</a>
             </div>
-            <a href="https://wa.me/51999999999" class="bg-green-600 hover:bg-green-500 px-5 py-2 rounded-full text-xs font-bold transition">WHATSAPP</a>
+            <a href="https://wa.me/51999999999" class="bg-green-600 text-black px-6 py-2 rounded font-bold text-xs hover:bg-green-400 transition">WHATSAPP</a>
         </div>
     </nav>
 
-    <section class="h-screen flex items-center justify-center text-center px-6 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-green-900/20 via-black to-black">
-        <div class="max-w-4xl">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6">Blindaje Digital para <span class="text-green-500">Entornos Críticos</span></h1>
-            <p class="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-                Consultoría técnica especializada en Lima. Expertos en Hardening de bases de datos, sistemas Legacy y cumplimiento normativo.
-            </p>
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#contacto" class="bg-white text-black px-8 py-4 rounded font-bold hover:bg-green-500 transition">INICIAR DIAGNÓSTICO</a>
-                <a href="#servicios" class="border border-gray-700 px-8 py-4 rounded font-bold hover:bg-gray-800 transition">NUESTROS SERVICIOS</a>
+    <header class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-3xl">
+                <span class="text-green-500 font-mono text-sm tracking-widest mb-4 block uppercase font-bold text-gradient">// Ciberseguridad de Élite en Lima</span>
+                <h1 class="text-6xl md:text-8xl font-extrabold leading-none mb-8">
+                    Auditamos su <span class="text-green-500">Código.</span><br>Defendemos su <span class="text-gray-500 italic">Activo.</span>
+                </h1>
+                <p class="text-gray-400 text-lg mb-10 leading-relaxed border-l-2 border-green-500 pl-6">
+                    Especialistas en entornos críticos, sistemas Legacy (FoxPro/VB6) y cumplimiento normativo Peruano. No somos generalistas, somos peritos.
+                </p>
+                <div class="flex flex-wrap gap-5">
+                    <a href="#contacto" class="bg-green-600 text-black px-10 py-4 rounded font-bold hover:shadow-[0_0_30px_rgba(34,197,94,0.4)] transition">INICIAR ESCANEO REAL</a>
+                    <a href="#servicios" class="border border-white/10 px-10 py-4 rounded font-bold hover:bg-white hover:text-black transition">VER CAPACIDADES</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="servicios" class="py-24 bg-[#080808]">
+        <div class="container mx-auto px-6">
+            <div class="mb-16">
+                <h2 class="text-xs font-mono text-green-500 uppercase tracking-widest mb-2">Capabilities</h2>
+                <h3 class="text-4xl font-bold">Servicios de Ingeniería</h3>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-10 rounded-xl">
+                    <div class="text-green-500 text-3xl mb-6"><i class="fas fa-user-secret"></i></div>
+                    <h4 class="text-xl font-bold mb-4 uppercase">Pentesting Ofensivo</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">Simulaciones de ataque avanzados bajo estándares OWASP y NIST. Identificamos brechas antes que los atacantes.</p>
+                </div>
+                <div class="glass-card p-10 rounded-xl">
+                    <div class="text-green-500 text-3xl mb-6"><i class="fas fa-microchip"></i></div>
+                    <h4 class="text-xl font-bold mb-4 uppercase">Sistemas Legacy</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">Blindaje y hardening para software en Visual Basic 6, FoxPro y COBOL. Seguridad sin detener la operación.</p>
+                </div>
+                <div class="glass-card p-10 rounded-xl">
+                    <div class="text-green-500 text-3xl mb-6"><i class="fas fa-database"></i></div>
+                    <h4 class="text-xl font-bold mb-4 uppercase">Database Hardening</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">Aseguramiento crítico de Oracle y SQL Server. Cifrado de datos y control de privilegios avanzado.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="contacto" class="py-24 bg-black relative overflow-hidden">
-        <div class="container mx-auto px-6 relative z-10">
+    <section id="metodologia" class="py-24 border-y border-white/5">
+        <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4 italic">PRUEBE SU SEGURIDAD</h2>
-                <p class="text-gray-500 font-mono text-sm uppercase">Escaneo de vulnerabilidades en tiempo real vía API</p>
+                <h3 class="text-4xl font-bold mb-4 italic text-gradient">Nuestro Framework</h3>
+                <p class="text-gray-500 font-mono text-xs">01 RECON -> 02 ANALYZE -> 03 EXPLOIT -> 04 REPORT -> 05 REMEDIATE</p>
             </div>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                <div class="text-center p-6 border border-white/5 rounded">
+                    <span class="text-green-500 font-bold block text-2xl mb-2">01</span>
+                    <span class="text-[10px] uppercase font-bold">Scoping</span>
+                </div>
+                <div class="text-center p-6 border border-white/5 rounded">
+                    <span class="text-green-500 font-bold block text-2xl mb-2">02</span>
+                    <span class="text-[10px] uppercase font-bold">Análisis</span>
+                </div>
+                <div class="text-center p-6 border border-white/5 rounded">
+                    <span class="text-green-500 font-bold block text-2xl mb-2">03</span>
+                    <span class="text-[10px] uppercase font-bold">Ejecución</span>
+                </div>
+                <div class="text-center p-6 border border-white/5 rounded">
+                    <span class="text-green-500 font-bold block text-2xl mb-2">04</span>
+                    <span class="text-[10px] uppercase font-bold">Informe</span>
+                </div>
+                <div class="text-center p-6 border border-white/5 rounded bg-green-900/10">
+                    <span class="text-green-500 font-bold block text-2xl mb-2">05</span>
+                    <span class="text-[10px] uppercase font-bold">Cierre</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <div class="grid lg:grid-cols-2 gap-12 items-start">
+    <section id="contacto" class="py-24 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16">
                 
-                <div class="bg-[#0d0d0d] rounded-xl border border-green-900/50 overflow-hidden terminal-glow">
-                    <div class="bg-gray-900 px-4 py-2 border-b border-green-900/30 flex items-center justify-between">
-                        <div class="flex space-x-2">
-                            <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
-                        </div>
-                        <span class="text-[10px] font-mono text-green-800 uppercase tracking-widest leading-none">MRA_VANGUARD_AUDIT_V2.0</span>
+                <div class="bg-[#0a0a0a] p-8 rounded-2xl border border-green-900/40 shadow-2xl">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 italic">
+                        <i class="fas fa-terminal text-green-500"></i> Auditoría Live
+                    </h3>
+                    <div class="flex gap-2 mb-6">
+                        <input type="text" id="target-url" placeholder="su-sitio.com" 
+                               class="flex-1 bg-black border border-green-900/20 p-4 rounded font-mono text-green-500 focus:outline-none focus:border-green-500">
+                        <button onclick="runRealAudit()" id="btn-audit" class="bg-green-600 hover:bg-green-500 px-8 rounded font-bold transition text-black">RUN</button>
                     </div>
-                    
-                    <div class="p-6">
-                        <div class="flex gap-3 mb-6">
-                            <input type="text" id="target-url" placeholder="ingrese-sitio-web.com" 
-                                   class="flex-1 bg-black border border-green-900/50 p-3 rounded font-mono text-green-500 focus:outline-none focus:ring-1 focus:ring-green-400">
-                            <button onclick="runRealAudit()" id="btn-audit" class="bg-green-700 hover:bg-green-600 px-6 py-3 rounded font-bold transition font-mono text-sm uppercase">
-                                Scan
-                            </button>
-                        </div>
 
-                        <div id="audit-console" class="hidden font-mono text-[11px] bg-black p-5 rounded border border-green-900/30 h-72 overflow-y-auto custom-scrollbar shadow-inner">
-                            <div id="console-logs" class="leading-relaxed"></div>
-                        </div>
+                    <div id="audit-console" class="hidden font-mono text-[10px] bg-black p-6 rounded border border-white/5 h-64 overflow-y-auto custom-scrollbar">
+                        <div id="console-logs" class="text-green-700"></div>
+                    </div>
 
-                        <div id="cta-whatsapp" class="hidden mt-6 animate-pulse">
-                            <a href="https://wa.me/51999999999?text=Hola MRA Vanguard, mi sitio web mostró vulnerabilidades críticas en el escaneo." 
-                               class="flex items-center justify-center gap-3 w-full bg-red-950 text-red-400 border border-red-500/50 py-4 rounded font-bold hover:bg-red-900 hover:text-white transition">
-                                <i class="fa-brands fa-whatsapp"></i> SOLICITAR MITIGACIÓN URGENTE
-                            </a>
-                        </div>
+                    <div id="cta-whatsapp" class="hidden mt-6 animate-pulse">
+                        <a href="https://wa.me/51999999999" class="block w-full bg-red-950 border border-red-500 text-red-400 py-4 rounded text-center font-bold">
+                            REPORTE CRÍTICO: CONTACTAR ANALISTA
+                        </a>
                     </div>
                 </div>
 
-                <div class="bg-gray-900/50 p-10 rounded-xl border border-gray-800 backdrop-blur-sm">
-                    <h3 class="text-2xl font-bold mb-6">CONSULTA ESPECIALIZADA</h3>
-                    <form class="space-y-5">
-                        <div class="grid md:grid-cols-2 gap-5">
-                            <input type="text" placeholder="Nombre" class="w-full bg-black border border-gray-800 p-4 rounded focus:border-green-500 outline-none transition text-sm">
-                            <input type="email" placeholder="Email Corporativo" class="w-full bg-black border border-gray-800 p-4 rounded focus:border-green-500 outline-none transition text-sm">
+                <div>
+                    <h3 class="text-3xl font-bold mb-8 italic">Solicitar Cotización</h3>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-2 gap-6">
+                            <input type="text" placeholder="Nombre" class="w-full bg-transparent border-b border-white/10 p-4 focus:border-green-500 outline-none transition">
+                            <input type="email" placeholder="Email" class="w-full bg-transparent border-b border-white/10 p-4 focus:border-green-500 outline-none transition">
                         </div>
-                        <select class="w-full bg-black border border-gray-800 p-4 rounded focus:border-green-500 outline-none transition text-sm text-gray-400">
-                            <option>Seguridad en Sistemas Legacy (VB6/FoxPro)</option>
-                            <option>Hardening Oracle / SQL Server</option>
-                            <option>Auditoría de Cumplimiento (Ley 29733)</option>
-                            <option>Servicios de Pentesting</option>
+                        <select class="w-full bg-transparent border-b border-white/10 p-4 focus:border-green-500 outline-none transition text-gray-500">
+                            <option>Consultoría Legacy</option>
+                            <option>Pentesting Web</option>
+                            <option>Cumplimiento Normativo</option>
                         </select>
-                        <textarea placeholder="Detalle su caso técnico..." rows="4" class="w-full bg-black border border-gray-800 p-4 rounded focus:border-green-500 outline-none transition text-sm"></textarea>
-                        <button class="w-full bg-white text-black py-4 rounded font-bold hover:bg-green-500 transition uppercase tracking-widest text-sm">Enviar a MRA Vanguard</button>
+                        <textarea placeholder="Mensaje..." rows="3" class="w-full bg-transparent border-b border-white/10 p-4 focus:border-green-500 outline-none transition"></textarea>
+                        <button class="bg-white text-black px-12 py-4 rounded font-extrabold uppercase text-xs tracking-widest hover:bg-green-500 transition">Enviar Expediente</button>
                     </form>
                 </div>
 
@@ -120,12 +179,67 @@
         </div>
     </section>
 
-    <footer class="py-12 border-t border-gray-900 text-center">
-        <p class="text-gray-600 text-xs font-mono uppercase tracking-[0.3em]">
-            © 2026 MRA VANGUARD · Lima, Perú · Especialistas en Ciber-Armor Engineering
+    <footer class="py-12 border-t border-white/5 text-center">
+        <p class="text-gray-600 text-[10px] font-mono tracking-[0.4em] uppercase">
+            MRA VANGUARD © 2026 // Lima - Perú // Ciber-Armor Engineering
         </p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        async function runRealAudit() {
+            const target = document.getElementById('target-url').value.trim();
+            if (!target) return alert("Ingrese un dominio");
+
+            const btn = document.getElementById('btn-audit');
+            const logs = document.getElementById('console-logs');
+            const consoleBox = document.getElementById('audit-console');
+            const cta = document.getElementById('cta-whatsapp');
+
+            btn.disabled = true;
+            logs.innerHTML = `[INFO] Estableciendo conexión con el dominio ${target}...<br>`;
+            consoleBox.classList.remove('hidden');
+            cta.classList.add('hidden');
+
+            try {
+                // LLAMADA REAL
+                const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://api.hackertarget.com/httpheaders/?q=${target}`)}`);
+                const data = await response.json();
+                
+                await sleep(1000);
+                addLog("Realizando fingerprinting de servidor...", "text-green-600");
+
+                if (data.contents) {
+                    const raw = data.contents.toLowerCase();
+                    
+                    if (raw.includes("server")) addLog("!! ADVERTENCIA: Firma del servidor expuesta.", "text-yellow-500");
+                    if (!raw.includes("strict-transport-security")) addLog("!! FALLO: Falta política HSTS.", "text-red-500");
+                    if (!raw.includes("x-frame-options")) addLog("!! RIESGO: Vulnerable a Clickjacking.", "text-red-400");
+                    
+                    addLog("<br>--- DUMP COMPLETO ---", "text-gray-600");
+                    addLog(data.contents.substring(0, 300).replace(/\n/g, "<br>"), "text-gray-500 italic");
+                }
+
+                addLog("<br>Auditoría finalizada.", "text-green-500 font-bold");
+                cta.classList.remove('hidden');
+
+            } catch (error) {
+                addLog("ERROR: Fallo en la conexión técnica.", "text-red-600");
+            } finally {
+                btn.disabled = false;
+            }
+        }
+
+        function addLog(msg, cls) {
+            const l = document.getElementById('console-logs');
+            const d = document.createElement('div');
+            d.className = `mb-1 ${cls}`;
+            d.innerHTML = `> ${msg}`;
+            l.appendChild(d);
+            document.getElementById('audit-console').scrollTop = l.scrollHeight;
+        }
+
+        function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+    </script>
+
 </body>
 </html>
