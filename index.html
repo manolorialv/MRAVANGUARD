@@ -1,289 +1,208 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MRA VANGUARD | Ciberseguridad para Sistemas Críticos</title>
-    <meta name="description" content="Consultora boutique de ciberseguridad especializada en blindaje de sistemas legacy y críticos en Perú.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="main.css">   <!-- Si creas un CSS separado después -->
-    <style>
-        :root {
-            --bg: #0a0f1c;
-            --accent: #00d4ff;
-            --accent2: #6366f1;
-            --text: #e0e7ff;
-            --text-secondary: #94a3b8;
-            --card-bg: #111827;
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* Navbar */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 15, 28, 0.95);
-            backdrop-filter: blur(12px);
-            z-index: 1000;
-            padding: 1.2rem 0;
-            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-        }
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-size: 1.85rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            background: linear-gradient(90deg, var(--accent), var(--accent2));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .nav-links {
-            display: flex;
-            gap: 2.2rem;
-            list-style: none;
-        }
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        .nav-links a:hover { 
-            color: var(--accent);
-            text-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
-        }
-        
-        /* Hero */
-        .hero {
-            height: 100vh;
-            min-height: 680px;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(rgba(10,15,28,0.88), rgba(10,15,28,0.92)), 
-                        url('https://picsum.photos/id/1015/1920/1080') center/cover no-repeat;
-            text-align: center;
-            position: relative;
-        }
-        .hero-content {
-            max-width: 920px;
-            margin: 0 auto;
-            z-index: 2;
-        }
-        .hero h1 {
-            font-size: 4.8rem;
-            font-weight: 800;
-            line-height: 1.05;
-            margin-bottom: 1.2rem;
-            background: linear-gradient(90deg, #ffffff, var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero .subtitle {
-            font-size: 1.65rem;
-            color: var(--accent);
-            margin-bottom: 1.8rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-        .hero p.lead {
-            font-size: 1.28rem;
-            color: var(--text-secondary);
-            max-width: 720px;
-            margin: 0 auto 3rem;
-        }
-        .btn-primary {
-            display: inline-block;
-            padding: 16px 44px;
-            background: linear-gradient(90deg, var(--accent), var(--accent2));
-            color: #0a0f1c;
-            font-weight: 700;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.35);
-        }
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 45px rgba(0, 212, 255, 0.5);
-        }
-
-        section { padding: 110px 0; }
-        h2 {
-            font-size: 3.1rem;
-            text-align: center;
-            margin-bottom: 3.5rem;
-            background: linear-gradient(90deg, var(--accent), #a5b4fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Servicios y Credenciales */
-        .services-grid, .credenciales-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 2.2rem;
-        }
-        .service-card, .cert-card {
-            background: var(--card-bg);
-            padding: 2.8rem 2.4rem;
-            border-radius: 20px;
-            transition: all 0.5s ease;
-            border: 1px solid rgba(0, 212, 255, 0.08);
-        }
-        .service-card:hover, .cert-card:hover {
-            transform: translateY(-15px);
-            border-color: var(--accent);
-            box-shadow: 0 25px 50px rgba(0, 212, 255, 0.18);
-        }
-        .service-card h3, .cert-card h3 {
-            color: var(--accent);
-            margin-bottom: 1.2rem;
-            font-size: 1.55rem;
-        }
-
-        footer {
-            background: #05070f;
-            text-align: center;
-            padding: 4rem 0 2rem;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 3.4rem; }
-            .nav-links { gap: 1.5rem; font-size: 0.95rem; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MRA VANGUARD | Ciberseguridad para Sistemas Críticos en Perú</title>
+  <meta name="description" content="Blindaje estratégico de sistemas legacy y críticos. Pentesting, hardening, cumplimiento normativo y formación especializada para empresas peruanas.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .hero-bg { background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://picsum.photos/id/1015/1920/1080'); background-size: cover; background-position: center; }
+    .accent { color: #00f5ff; }
+  </style>
 </head>
-<body>
+<body class="bg-zinc-950 text-zinc-200">
 
-    <!-- Navbar -->
-    <nav>
-        <div class="container nav-content">
-            <div class="logo">MRA VANGUARD</div>
-            <ul class="nav-links">
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#credenciales">Credenciales</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full bg-zinc-950/90 backdrop-blur-md z-50 border-b border-zinc-800">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="text-2xl font-bold tracking-tight">MRA <span class="accent">VANGUARD</span></div>
+      <div class="hidden md:flex space-x-8 text-sm">
+        <a href="#servicios" class="hover:text-white transition">Servicios</a>
+        <a href="#academy" class="hover:text-white transition">MRA Academy</a>
+        <a href="#blog" class="hover:text-white transition">Blog</a>
+        <a href="#contacto" class="hover:text-white transition">Contacto</a>
+      </div>
+      <a href="#contacto" class="bg-cyan-500 hover:bg-cyan-600 text-black font-medium px-6 py-2.5 rounded-lg text-sm transition">Solicitar Diagnóstico</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-bg min-h-screen flex items-center pt-20">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
+        Blindaje Estratégico<br>para Sistemas Críticos
+      </h1>
+      <p class="text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto mb-10">
+        Protegemos y modernizamos los sistemas legacy y críticos que sostienen tu negocio en Perú. 
+        Seguridad real, sin interrupciones operativas y con total cumplimiento normativo.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#contacto" class="bg-cyan-500 hover:bg-cyan-600 text-black font-semibold px-10 py-4 rounded-xl text-lg transition">Solicitar Diagnóstico Confidencial Gratis</a>
+        <a href="#servicios" class="border border-zinc-400 hover:border-white px-10 py-4 rounded-xl text-lg transition">Ver Servicios</a>
+      </div>
+      <p class="text-sm text-zinc-500 mt-8">Confidencial • Sin compromiso • Resultados en 48 horas</p>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section id="servicios" class="py-24 bg-zinc-900">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">Nuestros Servicios</h2>
+        <p class="text-zinc-400 max-w-2xl mx-auto">Soluciones prácticas y de alto impacto para proteger lo que realmente importa.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Servicio 1 -->
+        <div class="bg-zinc-800 p-8 rounded-2xl border border-zinc-700 hover:border-cyan-500 transition">
+          <i class="fa-solid fa-bug text-4xl accent mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3">Pentesting Ofensivo & Red Team</h3>
+          <p class="text-zinc-400">Simulaciones reales de ataques avanzados siguiendo metodologías OWASP, PTES y estándares internacionales. Identificamos vulnerabilidades explotables y entregamos reportes accionables priorizados por riesgo de negocio.</p>
         </div>
-    </nav>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="container hero-content">
-            <h1>Blindaje Estratégico<br>para Sistemas Críticos</h1>
-            <p class="subtitle">Ciberseguridad premium para el Perú empresarial</p>
-            <p class="lead">
-                Consultora boutique especializada en proteger y modernizar sistemas legacy y críticos. 
-                Combinamos expertise técnica de élite con estándares internacionales para entregar resiliencia real y cumplimiento normativo.
-            </p>
-            <a href="#contacto" class="btn-primary">Solicitar Diagnóstico Confidencial</a>
+        <!-- Servicio 2 -->
+        <div class="bg-zinc-800 p-8 rounded-2xl border border-zinc-700 hover:border-cyan-500 transition">
+          <i class="fa-solid fa-shield-halved text-4xl accent mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3">Hardening de Infraestructura</h3>
+          <p class="text-zinc-400">Endurecimiento completo de servidores, redes y aplicaciones con CIS Benchmarks, NIST y enfoque Zero Trust. Reducimos significativamente la superficie de ataque sin afectar el rendimiento operativo.</p>
         </div>
-    </section>
 
-    <!-- Servicios -->
-    <section id="servicios">
-        <div class="container">
-            <h2>Nuestros Servicios</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Pentesting Ofensivo & Red Team</h3>
-                    <p>Simulaciones reales de ataques avanzados siguiendo OWASP, PTES y CREST. Identificamos vulnerabilidades explotables y entregamos reportes con priorización por riesgo de negocio.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Hardening de Infraestructura</h3>
-                    <p>Endurecimiento integral siguiendo CIS Benchmarks, NIST y Zero Trust. Reducimos la superficie de ataque sin comprometer el rendimiento operativo.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Modernización Segura de Sistemas Legacy</h3>
-                    <p>Expertos en actualizar y blindar plataformas antiguas ampliamente usadas en Perú:</p>
-                    <ul style="margin: 1rem 0 1rem 1.2rem; color: var(--text-secondary);">
-                        <li>• Visual FoxPro</li>
-                        <li>• Visual Basic 6</li>
-                        <li>• COBOL y entornos mainframe</li>
-                        <li>• Aplicaciones críticas legacy</li>
-                    </ul>
-                    <p>Migración controlada, encapsulación segura y hardening sin interrupciones operativas.</p>
-                </div>
-                <div class="service-card">
-                    <h3>Seguridad de Bases de Datos Críticas</h3>
-                    <p>Protección avanzada de Oracle, SQL Server, PostgreSQL y MySQL con cifrado, control de accesos y monitoreo continuo.</p>
-                </div>
-                <div class="service-card">
-                    <h3>GRC – Gobierno, Riesgo y Cumplimiento</h3>
-                    <p>Implementación de ISO 27001, cumplimiento de Ley 29733, regulaciones SBS y SMV. Marcos de gobierno que integran seguridad y estrategia.</p>
-                </div>
-                <div class="service-card">
-                    <h3>MRA Academy – Formación Especializada</h3>
-                    <p>Programas in-company de Ethical Hacking, Respuesta a Incidentes y Liderazgo en Ciberseguridad.</p>
-                </div>
-            </div>
+        <!-- Servicio 3 -->
+        <div class="bg-zinc-800 p-8 rounded-2xl border border-zinc-700 hover:border-cyan-500 transition">
+          <i class="fa-solid fa-arrows-rotate text-4xl accent mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3">Modernización Segura de Sistemas Legacy</h3>
+          <p class="text-zinc-400">Especialistas en Visual FoxPro, Visual Basic 6, COBOL y entornos mainframe comunes en Perú. Migración controlada, encapsulación segura y hardening que mantiene la continuidad operativa al 100%.</p>
         </div>
-    </section>
 
-    <!-- Credenciales -->
-    <section id="credenciales" style="background: #0f172a;">
-        <div class="container">
-            <h2>Expertise Respaldada por Estándares Internacionales</h2>
-            <div class="credenciales-grid">
-                <div class="cert-card">
-                    <h3>Marcos que Implementamos</h3>
-                    <ul style="list-style: none; padding-left: 0;">
-                        <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08);">• <strong>ISO/IEC 27001:2022</strong> – Sistema de Gestión de Seguridad de la Información</li>
-                        <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08);">• NIST Cybersecurity Framework y SP 800-53</li>
-                        <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08);">• ISO 22301 – Continuidad de Negocio</li>
-                        <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08);">• CIS Benchmarks y Zero Trust Architecture</li>
-                        <li style="padding: 12px 0;">• Cumplimiento Ley 29733, SBS y SMV</li>
-                    </ul>
-                </div>
-                <div class="cert-card">
-                    <h3>Certificaciones del Equipo</h3>
-                    <ul style="list-style: none; padding-left: 0;">
-                        <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08);">• ISO 27001 Lead Implementer & Lead Auditor</li>
-                        <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08);">• CISSP • CISM</li>
-                        <li style="padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08);">• CEH • OSCP</li>
-                        <li style="padding: 12px 0;">• CompTIA Security+ y Cloud Security</li>
-                    </ul>
-                    <p style="margin-top: 1.8rem; font-size: 0.97rem; color: var(--accent);">
-                        Estamos en proceso de certificación ISO 27001 para nuestra operación.
-                    </p>
-                </div>
-            </div>
+        <!-- Servicio 4 -->
+        <div class="bg-zinc-800 p-8 rounded-2xl border border-zinc-700 hover:border-cyan-500 transition">
+          <i class="fa-solid fa-database text-4xl accent mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3">Seguridad de Bases de Datos Críticas</h3>
+          <p class="text-zinc-400">Protección avanzada de Oracle, SQL Server, PostgreSQL y MySQL: cifrado de datos en reposo y tránsito, control granular de accesos, auditoría y monitoreo continuo contra fugas e inyecciones.</p>
         </div>
-    </section>
 
-    <!-- Contacto -->
-    <section id="contacto">
-        <div class="container" style="text-align: center;">
-            <h2>¿Listo para fortalecer su postura de seguridad?</h2>
-            <p style="font-size: 1.25rem; max-width: 620px; margin: 1.8rem auto; color: var(--text-secondary);">
-                Contáctenos para un diagnóstico inicial confidencial y sin compromiso.
-            </p>
-            <a href="mailto:contacto@mravanguard.com" class="btn-primary">Iniciar Conversación Confidencial</a>
+        <!-- Servicio 5 -->
+        <div class="bg-zinc-800 p-8 rounded-2xl border border-zinc-700 hover:border-cyan-500 transition">
+          <i class="fa-solid fa-file-shield text-4xl accent mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3">GRC – Gobierno, Riesgo y Cumplimiento</h3>
+          <p class="text-zinc-400">Implementación de marcos ISO 27001, alineación con Ley de Protección de Datos (29733), regulaciones SBS y SMV. Convertimos la seguridad en ventaja estratégica y cumplimiento normativo.</p>
         </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2026 MRA VANGUARD – Consultoría Boutique de Ciberseguridad. Lima, Perú.</p>
-    </footer>
+        <!-- Servicio 6 -->
+        <div class="bg-zinc-800 p-8 rounded-2xl border border-zinc-700 hover:border-cyan-500 transition">
+          <i class="fa-solid fa-chart-line text-4xl accent mb-6"></i>
+          <h3 class="text-2xl font-semibold mb-3">Monitoreo y Respuesta a Incidentes</h3>
+          <p class="text-zinc-400">Detección temprana de amenazas, planes de respuesta a incidentes y recuperación rápida. Reducimos el tiempo de detección y minimizamos el impacto de cualquier brecha.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="main.js"></script>
+  <!-- MRA Academy - Concientización y Formación -->
+  <section id="academy" class="py-24 bg-black">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="text-4xl font-bold mb-6">MRA Academy</h2>
+          <p class="text-xl text-zinc-400 mb-8">Concientización y formación especializada para que tu equipo sea la primera línea de defensa.</p>
+          <ul class="space-y-6 text-lg">
+            <li class="flex gap-4"><i class="fa-solid fa-check accent mt-1"></i> Talleres de Ethical Hacking práctico</li>
+            <li class="flex gap-4"><i class="fa-solid fa-check accent mt-1"></i> Programas de Concientización en Ciberseguridad para todos los niveles</li>
+            <li class="flex gap-4"><i class="fa-solid fa-check accent mt-1"></i> Formación en Respuesta a Incidentes y Liderazgo en Seguridad</li>
+            <li class="flex gap-4"><i class="fa-solid fa-check accent mt-1"></i> Sesiones personalizadas in-company adaptadas al sector y sistemas legacy de tu empresa</li>
+          </ul>
+          <a href="#contacto" class="inline-block mt-10 bg-zinc-800 hover:bg-zinc-700 border border-cyan-500 text-cyan-400 px-8 py-4 rounded-xl font-medium">Solicitar Programa de Formación</a>
+        </div>
+        <div class="bg-zinc-900 p-10 rounded-3xl border border-zinc-700">
+          <p class="italic text-zinc-300">"La tecnología sola no basta. Las personas son el eslabón más fuerte cuando están bien capacitadas."</p>
+          <p class="text-sm text-zinc-500 mt-6">- Equipo MRA VANGUARD</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section id="blog" class="py-24 bg-zinc-900">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex justify-between items-end mb-12">
+        <div>
+          <h2 class="text-4xl font-bold">Blog de Ciberseguridad</h2>
+          <p class="text-zinc-400">Insights prácticos sobre amenazas a sistemas legacy y mejores prácticas en Perú</p>
+        </div>
+        <a href="#" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-2">Ver todos los artículos <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <article class="bg-zinc-800 rounded-2xl overflow-hidden">
+          <div class="h-48 bg-zinc-700"></div>
+          <div class="p-6">
+            <h3 class="font-semibold mb-2">Riesgos ocultos en sistemas Visual FoxPro aún usados en Perú</h3>
+            <p class="text-sm text-zinc-400 line-clamp-3">Cómo identificar y mitigar vulnerabilidades en aplicaciones legacy que manejan datos sensibles...</p>
+            <a href="#" class="text-cyan-400 text-sm mt-4 inline-block">Leer más →</a>
+          </div>
+        </article>
+
+        <article class="bg-zinc-800 rounded-2xl overflow-hidden">
+          <div class="h-48 bg-zinc-700"></div>
+          <div class="p-6">
+            <h3 class="font-semibold mb-2">Cumplimiento SBS 2026: ¿Está tu banco o financiera listo?</h3>
+            <p class="text-sm text-zinc-400 line-clamp-3">Claves para alinear tu infraestructura legacy con las nuevas exigencias regulatorias...</p>
+            <a href="#" class="text-cyan-400 text-sm mt-4 inline-block">Leer más →</a>
+          </div>
+        </article>
+
+        <article class="bg-zinc-800 rounded-2xl overflow-hidden">
+          <div class="h-48 bg-zinc-700"></div>
+          <div class="p-6">
+            <h3 class="font-semibold mb-2">Zero Trust aplicado a entornos mainframe y COBOL</h3>
+            <p class="text-sm text-zinc-400 line-clamp-3">Estrategias reales para implementar confianza cero sin paralizar operaciones críticas...</p>
+            <a href="#" class="text-cyan-400 text-sm mt-4 inline-block">Leer más →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulario de Contacto -->
+  <section id="contacto" class="py-24 bg-black">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-4">Inicia una conversación confidencial</h2>
+      <p class="text-center text-zinc-400 mb-12">Completa el formulario y te contactaremos en menos de 24 horas para agendar tu diagnóstico inicial.</p>
+
+      <form action="https://formspree.io/f/TU_CODIGO_AQUI" method="POST" class="space-y-8">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-sm mb-2">Nombre / Empresa</label>
+            <input type="text" name="nombre" required class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-6 py-4 focus:outline-none focus:border-cyan-500">
+          </div>
+          <div>
+            <label class="block text-sm mb-2">Correo electrónico</label>
+            <input type="email" name="email" required class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-6 py-4 focus:outline-none focus:border-cyan-500">
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm mb-2">Teléfono / WhatsApp</label>
+          <input type="tel" name="telefono" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-6 py-4 focus:outline-none focus:border-cyan-500">
+        </div>
+        <div>
+          <label class="block text-sm mb-2">¿Qué sistema o área necesitas proteger?</label>
+          <textarea name="mensaje" rows="5" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-6 py-4 focus:outline-none focus:border-cyan-500" placeholder="Ej: Sistema Visual FoxPro en contabilidad, base de datos Oracle, cumplimiento SBS..."></textarea>
+        </div>
+        <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-600 text-black font-semibold py-5 rounded-2xl text-lg transition">Enviar Solicitud Confidencial</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-zinc-950 border-t border-zinc-800 py-12">
+    <div class="max-w-6xl mx-auto px-6 text-center text-sm text-zinc-500">
+      <p>© 2026 MRA VANGUARD – Ciberseguridad para Sistemas Críticos en Perú</p>
+      <p class="mt-2">Confidencialidad garantizada | Todos los derechos reservados</p>
+    </div>
+  </footer>
+
 </body>
-</html
+</html>
