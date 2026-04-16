@@ -1,93 +1,55 @@
-/**
- * MRA VANGUARD - Lógica de Interfaz
- */
+// main.js - MRA VANGUARD
+function initTailwind() {
+    tailwind.config = {
+        content: [],
+        theme: {
+            extend: {}
+        }
+    }
+}
 
 function analizarURL() {
-    const urlInput = document.getElementById('urlInput').value;
-    const resultsDiv = document.getElementById('demoResults');
-
-    if (!urlInput || !urlInput.includes('.')) {
-        alert("Por favor, ingrese una URL válida.");
-        return;
+    const input = document.getElementById('urlInput')
+    const resultado = document.getElementById('resultado')
+    
+    if (!input || input.value.trim() === '') {
+        alert('Por favor ingresa una URL válida')
+        return
     }
 
-    // Mostrar estado de carga
-    resultsDiv.classList.remove('hidden');
-    resultsDiv.innerHTML = `
-        <div class="flex items-center justify-center py-8">
-            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-cyan-500"></div>
-            <span class="ml-4 text-zinc-400 font-mono">Iniciando escaneo OWASP en ${urlInput}...</span>
-        </div>
-    `;
-
-    // Simulación de análisis por etapas
-    const etapas = [
-        "Verificando certificados SSL/TLS...",
-        "Escaneando encabezados de seguridad (HSTS, CSP)...",
-        "Buscando puertos abiertos y servicios expuestos...",
-        "Analizando scripts de pasarelas de pago..."
-    ];
-
-    let i = 0;
-    const interval = setInterval(() => {
-        if (i < etapas.length) {
-            resultsDiv.innerHTML = `
-                <div class="flex items-center justify-center py-8">
-                    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-cyan-500"></div>
-                    <span class="ml-4 text-zinc-400 font-mono">${etapas[i]}</span>
-                </div>
-            `;
-            i++;
-        } else {
-            clearInterval(interval);
-            mostrarResultadoFinal(urlInput);
-        }
-    }, 1200);
-}
-
-function mostrarResultadoFinal(url) {
-    const resultsDiv = document.getElementById('demoResults');
-    
-    // Resultados simulados pero con tono profesional
-    resultsDiv.innerHTML = `
-        <div class="demo-result bg-zinc-900 border border-zinc-800 p-6 rounded-2xl">
+    resultado.classList.remove('hidden')
+    resultado.innerHTML = `
+        <div class="bg-[#0a1729] border border-cyan-400 rounded-2xl p-8 text-left max-w-md mx-auto">
             <div class="flex justify-between items-center mb-6">
-                <h4 class="font-bold text-lg text-cyan-400">Reporte Preliminar: ${url}</h4>
-                <span class="px-3 py-1 bg-yellow-500/10 text-yellow-500 text-xs rounded-full border border-yellow-500/20 font-bold">RIESGO MODERADO</span>
+                <p class="font-semibold text-cyan-400">✅ Análisis completado</p>
+                <p class="text-sm bg-green-500 text-black px-4 py-1 rounded-full">Seguridad: 87/100</p>
             </div>
-            
-            <div class="grid md:grid-cols-3 gap-4 mb-6">
-                <div class="p-4 bg-black rounded-xl border border-zinc-800">
-                    <p class="text-zinc-500 text-xs mb-1">Cifrado SSL</p>
-                    <p class="text-green-400 font-bold">Óptimo</p>
-                </div>
-                <div class="p-4 bg-black rounded-xl border border-zinc-800">
-                    <p class="text-zinc-500 text-xs mb-1">Encabezados</p>
-                    <p class="text-red-400 font-bold">Faltan CSP/HSTS</p>
-                </div>
-                <div class="p-4 bg-black rounded-xl border border-zinc-800">
-                    <p class="text-zinc-500 text-xs mb-1">Pasarelas</p>
-                    <p class="text-cyan-400 font-bold">Detectadas</p>
-                </div>
-            </div>
-
-            <p class="text-sm text-zinc-400 mb-6 italic">
-                * Se han detectado posibles fugas de información en encabezados y falta de blindaje en scripts transaccionales. Este análisis es superficial.
-            </p>
-
-            <button onclick="document.getElementById('contacto').scrollIntoView()" class="w-full bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-3 rounded-xl transition-all">
-                Obtener Informe Detallado Gratis
-            </button>
+            <p class="text-sm mb-4"><strong>URL analizada:</strong> ${input.value}</p>
+            <ul class="space-y-3 text-sm">
+                <li class="flex justify-between"><span class="text-gray-400">Vulnerabilidades críticas:</span> <span class="text-red-400">2</span></li>
+                <li class="flex justify-between"><span class="text-gray-400">Problemas de usabilidad:</span> <span class="text-amber-400">1</span></li>
+                <li class="flex justify-between"><span class="text-gray-400">Tiempo de carga:</span> <span class="text-green-400">1.8s</span></li>
+                <li class="flex justify-between"><span class="text-gray-400">SSL / HTTPS:</span> <span class="text-green-400">Correcto</span></li>
+            </ul>
+            <p class="text-xs text-gray-500 mt-8">Este es un análisis ilustrativo. El informe completo y personalizado lo entregamos en nuestra consultoría.</p>
+            <button onclick="contactar()" class="mt-6 w-full bg-cyan-400 text-black py-3 rounded-2xl font-semibold">Obtener informe completo →</button>
         </div>
-    `;
+    `
 }
 
-// Suavizar scroll de navegación
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
+function contactar() {
+    alert('¡Gracias! En breve te contactaremos por WhatsApp o correo para entregarte el informe completo.')
+    // Aquí podrías redirigir a WhatsApp o formulario
+}
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault()
+    alert('✅ Formulario enviado. Te contactaremos en menos de 2 horas vía WhatsApp o correo.')
+    this.reset()
+})
+
+// Inicializar
+document.addEventListener('DOMContentLoaded', () => {
+    initTailwind()
+    console.log('%c🚀 MRA VANGUARD - Sitio profesional cargado', 'color:#22d3ee; font-weight:bold')
+})
